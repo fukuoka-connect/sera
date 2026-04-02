@@ -174,6 +174,8 @@
       transition: color 0.4s;
     }
     .nav.scrolled .nav-logo { color: var(--text); }
+    .nav-logo img { transition: filter 0.4s; }
+    .nav.scrolled .nav-logo img { filter: none; }
     .nav-cta {
       font-size: 10px;
       letter-spacing: 3px;
@@ -830,7 +832,7 @@
 
 <!-- NAV -->
 <nav class="nav" id="nav" role="navigation" aria-label="メインナビゲーション">
-  <a href="#" class="nav-logo" aria-label="SERA トップへ">SERA</a>
+  <a href="#" class="nav-logo" aria-label="SERA トップへ"><img src="images/sera-logo.png" alt="SERA" style="height:32px;width:auto;"></a>
   <a href="#reserve" class="nav-cta">ご予約</a>
 </nav>
 
@@ -845,8 +847,7 @@
   </div>
   <div class="hero-inner">
     <p class="hero-eyebrow">宇美の女性専用リラクゼーションサロン</p>
-    <h1 class="hero-logo" aria-label="SERA">SERA</h1>
-    <p class="hero-salon">Relaxation Salon</p>
+    <h1 class="hero-logo" aria-label="SERA"><img src="images/sera-logo.png" alt="SERA Relaxation Salon" style="height:clamp(100px,25vw,180px);width:auto;filter:brightness(0) invert(1);"></h1>
     <p class="hero-catch">
       体<span class="sm">が</span>重い。心<span class="sm">が</span>休<span class="sm">まら</span>ない。<br>
       忙<span class="sm">しさの</span>中<span class="sm">で、</span><em>自分<span class="sm">の</span>こと<span class="sm">が</span>後回し</em><span class="sm">に</span>なっていませんか？<br>
