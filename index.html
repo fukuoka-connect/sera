@@ -118,6 +118,7 @@
 
     /* ═══ TYPOGRAPHY SIZE DIFF TECHNIQUE ═══ */
     h1 .sm, h2 .sm, .hdg .sm { font-size: 0.78em; }
+    .hero-catch .sm { font-size: 0.85em; }
 
     /* ═══ UTILITY ═══ */
     .eyebrow {
@@ -180,7 +181,7 @@
       border: 1px solid rgba(255,255,255,0.5);
       padding: 8px 20px;
       text-decoration: none;
-      transition: all 0.3s;
+      transition: all 0.48s cubic-bezier(.25,.46,.45,.94);
       font-family: 'Noto Serif JP', serif;
     }
     .nav.scrolled .nav-cta {
@@ -191,6 +192,7 @@
       background: var(--salmon);
       border-color: var(--salmon);
       color: var(--white);
+      transition-duration: 0.22s;
     }
 
     /* ═══ HERO ═══ */
@@ -332,21 +334,22 @@
       font-family: 'Noto Serif JP', serif;
       border-radius: 40px;
       box-shadow: 0 6px 24px rgba(212,115,90,0.35);
-      transition: opacity 0.3s, transform 0.3s, box-shadow 0.3s;
+      transition: opacity 0.48s cubic-bezier(.25,.46,.45,.94), transform 0.48s cubic-bezier(.25,.46,.45,.94), box-shadow 0.48s cubic-bezier(.25,.46,.45,.94);
       position: relative;
       overflow: hidden;
     }
     .btn-reserve::after {
       content: '→';
       font-size: 14px;
-      transition: transform 0.3s;
+      transition: transform 0.48s cubic-bezier(.25,.46,.45,.94);
     }
     .btn-reserve:hover {
       opacity: 0.9;
       transform: translateY(-2px);
       box-shadow: 0 10px 32px rgba(212,115,90,0.45);
+      transition-duration: 0.22s;
     }
-    .btn-reserve:hover::after { transform: translateX(4px); }
+    .btn-reserve:hover::after { transform: translateX(4px); transition-duration: 0.22s; }
 
     /* ═══ ACCESS BAR ═══ */
     .access-bar {
@@ -421,9 +424,9 @@
       background: var(--white);
       padding: 32px 28px;
       position: relative;
-      transition: background 0.3s;
+      transition: background 0.48s cubic-bezier(.25,.46,.45,.94);
     }
-    .pain-card:hover { background: var(--ivory); }
+    .pain-card:hover { background: var(--ivory); transition-duration: 0.22s; }
     .pain-card::before {
       content: '';
       position: absolute;
@@ -566,11 +569,12 @@
       padding: 36px 28px 32px;
       position: relative;
       border: 1px solid var(--cream-mid);
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: transform 0.48s cubic-bezier(.25,.46,.45,.94), box-shadow 0.48s cubic-bezier(.25,.46,.45,.94);
     }
     .menu-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 12px 40px var(--shadow);
+      transition-duration: 0.22s;
     }
     .menu-card::before {
       content: '';
@@ -633,9 +637,9 @@
     .rose-card {
       background: var(--white);
       padding: 32px 28px;
-      transition: background 0.3s;
+      transition: background 0.48s cubic-bezier(.25,.46,.45,.94);
     }
-    .rose-card:hover { background: var(--ivory); }
+    .rose-card:hover { background: var(--ivory); transition-duration: 0.22s; }
     .rose-icon { font-size: 22px; margin-bottom: 14px; display: block; }
     .rose-title {
       font-size: 13px;
@@ -668,9 +672,9 @@
       background: var(--white);
       padding: 20px 20px;
       border: 1px solid var(--cream-mid);
-      transition: border-color 0.3s;
+      transition: border-color 0.48s cubic-bezier(.25,.46,.45,.94);
     }
-    .for-item:hover { border-color: var(--salmon-pale); }
+    .for-item:hover { border-color: var(--salmon-pale); transition-duration: 0.22s; }
     .for-check {
       flex-shrink: 0;
       width: 18px; height: 18px;
@@ -779,33 +783,9 @@
       font-family: 'Noto Serif JP', serif;
       border-radius: 40px;
       box-shadow: 0 4px 16px rgba(6,199,85,0.3);
-      transition: opacity 0.3s, transform 0.3s;
+      transition: opacity 0.48s cubic-bezier(.25,.46,.45,.94), transform 0.48s cubic-bezier(.25,.46,.45,.94);
     }
-    .btn-line:hover { opacity: 0.88; transform: translateY(-2px); }
-    .btn-tel {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid rgba(255,255,255,0.3);
-      color: rgba(255,255,255,0.8);
-      padding: 15px 40px;
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-decoration: none;
-      font-family: 'Noto Serif JP', serif;
-      border-radius: 40px;
-      transition: all 0.3s;
-    }
-    .btn-tel::before {
-      content: '→';
-      font-size: 13px;
-      opacity: 0.6;
-    }
-    .btn-tel:hover {
-      border-color: var(--salmon-lt);
-      color: var(--salmon-lt);
-      transform: translateY(-2px);
-    }
+    .btn-line:hover { opacity: 0.88; transform: translateY(-2px); transition-duration: 0.22s; }
 
     /* ═══ FOOTER ═══ */
     footer {
@@ -834,7 +814,7 @@
       .sec { padding: 64px 20px; }
       .sec-sm { padding: 48px 20px; }
       .nav { padding: 14px 20px; }
-      .nav-cta { padding: 7px 16px; font-size: 9px; }
+      .nav-cta { padding: 12px 20px; font-size: 9px; }
       .hero { padding: 90px 20px 56px; }
       .hero-logo { letter-spacing: 12px; }
       .hero-catch { font-size: 14px; line-height: 2.3; }
@@ -868,9 +848,9 @@
     <h1 class="hero-logo" aria-label="SERA">SERA</h1>
     <p class="hero-salon">Relaxation Salon</p>
     <p class="hero-catch">
-      体<span style="font-size:.85em">が</span>重い。心<span style="font-size:.85em">が</span>休<span style="font-size:.85em">まら</span>ない。<br>
-      忙<span style="font-size:.85em">しさ</span>の中<span style="font-size:.85em">で、</span><em>自分<span style="font-size:.85em">の</span>こと<span style="font-size:.85em">が</span>後回し</em><span style="font-size:.85em">に</span>なっていませんか？<br>
-      <span style="color:rgba(255,255,255,0.9);font-size:.95em">ここ<span style="font-size:.85em">は、</span>あなただけ<span style="font-size:.85em">の</span>時間<span style="font-size:.85em">と</span>空間です。</span>
+      体<span class="sm">が</span>重い。心<span class="sm">が</span>休<span class="sm">まら</span>ない。<br>
+      忙<span class="sm">しさの</span>中<span class="sm">で、</span><em>自分<span class="sm">の</span>こと<span class="sm">が</span>後回し</em><span class="sm">に</span>なっていませんか？<br>
+      <span style="color:rgba(255,255,255,0.9);font-size:.95em">ここ<span class="sm">は、</span>あなただけ<span class="sm">の</span>時間<span class="sm">と</span>空間です。</span>
     </p>
     <div class="hero-line" aria-hidden="true"></div>
     <a href="#reserve" class="btn-reserve">ご予約はこちら</a>
@@ -982,7 +962,7 @@
     <div class="menu-grid reveal reveal-d1">
       <div class="menu-card">
         <span class="eyebrow">Relaxation</span>
-        <h3 class="menu-card-title">レディアアトリートメント</h3>
+        <h3 class="menu-card-title">レディケアトリートメント</h3>
         <p class="menu-card-desc">
           女性のお悩みにとことん寄り添う、体の芯からほぐれる至福のトリートメント。
           仙骨に特化したアプローチで、深部からケアします。
@@ -1001,7 +981,7 @@
       <div class="menu-card">
         <div class="menu-badge">Recommend</div>
         <span class="eyebrow">Set Menu</span>
-        <h3 class="menu-card-title">レディアアトリートメント<br>＋ローズ蒸しテント</h3>
+        <h3 class="menu-card-title">レディケアトリートメント<br>＋ローズ蒸しテント</h3>
         <p class="menu-card-desc">
           トリートメントとローズ蒸しテントを組み合わせた贅沢なフルコース。
           相乗効果でより深いリラクゼーションへ。
@@ -1136,14 +1116,15 @@
     </h2>
     <p class="cta-sub">
       完全予約制・女性専用プライベートサロン<br>
-      宇美駅から徒歩5分　／　10:00〜20:00
+      宇美駅から徒歩5分　／　10:00〜20:00<br>
+      <span style="color:rgba(255,255,255,0.6);font-size:11px;margin-top:8px;display:inline-block;">※ 当日予約は埋まりやすくなっております。お早めにどうぞ。</span>
     </p>
     <div class="cta-btns">
       <a href="https://lin.ee/" class="btn-line" aria-label="LINEで予約する">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
         LINEで予約する
       </a>
-      <a href="tel:08052725013" class="btn-tel" aria-label="電話で予約する 080-5272-5013">お電話で予約する</a>
+      <p style="font-size:12px;color:rgba(255,255,255,0.45);letter-spacing:1px;">お電話：<a href="tel:08052725013" style="color:rgba(255,255,255,0.55);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">080-5272-5013</a></p>
     </div>
   </div>
 </section>
@@ -1172,6 +1153,44 @@
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 60);
   }, { passive: true });
+
+  // ─ GA4 Custom Events
+
+  // 1. CTA click tracking
+  document.querySelectorAll('.btn-reserve, .btn-line, .btn-tel, a[href^="tel:"]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      gtag('event', 'cta_click', {
+        cta_text: btn.textContent.trim(),
+        cta_url: btn.getAttribute('href')
+      });
+    });
+  });
+
+  // 2. Scroll depth tracking (25/50/75/100%)
+  const scrollThresholds = [25, 50, 75, 100];
+  const scrollFired = {};
+  window.addEventListener('scroll', () => {
+    const scrollPercent = Math.round((window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100);
+    scrollThresholds.forEach(t => {
+      if (scrollPercent >= t && !scrollFired[t]) {
+        scrollFired[t] = true;
+        gtag('event', 'scroll_depth', { depth: t + '%' });
+      }
+    });
+  }, { passive: true });
+
+  // 3. Section view tracking
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        gtag('event', 'section_view', {
+          section_id: e.target.getAttribute('aria-labelledby') || e.target.className.split(' ')[0]
+        });
+        sectionObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('section, .transform-sec, .access-bar').forEach(s => sectionObserver.observe(s));
 </script>
 </body>
 </html>
