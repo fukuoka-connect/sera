@@ -1,0 +1,1636 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ═══ GA4 ═══ -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EYK43YPYM7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-EYK43YPYM7');
+  </script>
+  <meta name="google-site-verification" content="la_6IGFOXHrX7_Azu1HLkg10JC-jciXeFN9VLZZ9hBg" />
+
+  <!-- ═══ PREVIEW SEO（本番と衝突しないよう noindex） ═══ -->
+  <title>[PREVIEW v1] SERA｜LP改善案プレビュー</title>
+  <meta name="description" content="SERAリラクゼーションサロン LP改善案v1のプレビュー版。本番ではありません。">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://fukuoka-connect.github.io/sera/preview.html">
+  <meta name="author" content="SERA Relaxation Salon">
+
+  <!-- ═══ OGP ═══ -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="[PREVIEW] SERA｜LP改善案v1">
+  <meta property="og:description" content="改善案プレビュー版です（本番ではありません）。">
+  <meta property="og:url" content="https://fukuoka-connect.github.io/sera/preview.html">
+  <meta property="og:site_name" content="SERA Relaxation Salon">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:image" content="https://fukuoka-connect.github.io/sera/images/ogp.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="[PREVIEW] SERA｜LP改善案v1">
+  <meta name="twitter:description" content="改善案プレビュー版です（本番ではありません）。">
+  <meta name="twitter:image" content="https://fukuoka-connect.github.io/sera/images/ogp.png">
+
+  <!-- ═══ 構造化データ ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HealthAndBeautyBusiness",
+    "name": "SERA Relaxation Salon",
+    "description": "宇美の女性専用プライベートリラクゼーションサロン。精油100%ローズ蒸しテント・仙骨特化トリートメント。妊活・更年期・冷え・アレルギー対応。完全予約制。",
+    "url": "https://fukuoka-connect.github.io/sera/",
+    "image": "https://fukuoka-connect.github.io/sera/images/ogp.png",
+    "telephone": "+81-80-5272-5013",
+    "email": "seraayu7096@gmail.com",
+    "priceRange": "¥2,050〜¥20,500",
+    "currenciesAccepted": "JPY",
+    "paymentAccepted": "Cash",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "貴船1丁目1-7 2F",
+      "addressLocality": "宇美町",
+      "addressRegion": "福岡県",
+      "postalCode": "811-2101",
+      "addressCountry": "JP"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 33.5694,
+      "longitude": 130.5136
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "opens": "10:00",
+      "closes": "20:00"
+    },
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "完全予約制", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "女性専用", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "プライベートルーム", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "マタニティ対応", "value": true }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+JP:wght@200;300;400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ═══ VARIABLES ═══ */
+    :root {
+      --white:       #FFFFFF;
+      --ivory:       #FDF9F7;
+      --cream:       #FAF3F0;
+      --cream-mid:   #F2E6E1;
+      --salmon:      #D4735A;
+      --salmon-lt:   #E09580;
+      --salmon-pale: #F2D5CC;
+      --terra:       #C05A42;
+      --terra-grad:  linear-gradient(135deg, #D4735A 0%, #E8956E 100%);
+      --gold:        #C5975B;
+      --gold-light:  #D4B88C;
+      --gold-pale:   #E8D5B8;
+      --text:        #4A3530;
+      --text-mid:    #7A5C55;
+      --text-lt:     #B09490;
+      --line-green:  #06C755;
+      --shadow:      rgba(212,115,90,0.12);
+    }
+
+    /* ═══ RESET ═══ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 17px; }
+    img { max-width: 100%; display: block; }
+
+    body {
+      background: var(--ivory);
+      color: var(--text);
+      font-family: 'Noto Serif JP', Georgia, serif;
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ═══ TYPOGRAPHY SIZE DIFF TECHNIQUE ═══ */
+    h1 .sm, h2 .sm, .hdg .sm { font-size: 0.78em; }
+    .hero-catch .sm { font-size: 0.85em; }
+
+    /* ═══ UTILITY ═══ */
+    .eyebrow {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 12px;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--salmon);
+      display: block;
+    }
+    .divider {
+      width: 32px;
+      height: 1px;
+      background: var(--salmon-pale);
+      margin: 0 auto;
+    }
+    .divider--left { margin: 0; }
+
+    /* ═══ REVEAL ANIMATION ═══ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+
+    /* ═══ HEADER / NAV ═══ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.4s, box-shadow 0.4s;
+    }
+    .nav.scrolled {
+      background: rgba(253,249,247,0.96);
+      box-shadow: 0 1px 0 rgba(212,115,90,0.15);
+      backdrop-filter: blur(8px);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: 8px;
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.4s;
+    }
+    .nav.scrolled .nav-logo { color: var(--text); }
+    .nav-logo img { filter: brightness(0) invert(1); transition: filter 0.4s; }
+    .nav.scrolled .nav-logo img { filter: none; }
+    .nav-cta {
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.5);
+      padding: 8px 20px;
+      text-decoration: none;
+      transition: all 0.48s cubic-bezier(.25,.46,.45,.94);
+      font-family: 'Noto Serif JP', serif;
+    }
+    .nav.scrolled .nav-cta {
+      color: var(--text);
+      border-color: var(--salmon-lt);
+    }
+    .nav-cta:hover {
+      background: var(--salmon);
+      border-color: var(--salmon);
+      color: var(--white);
+      transition-duration: 0.22s;
+    }
+
+    /* ═══ HERO ═══ */
+    .hero {
+      min-height: 100svh;
+      min-height: 100vh;
+      background: linear-gradient(150deg, rgba(58,31,24,0.82) 0%, rgba(92,46,34,0.78) 50%, rgba(74,34,24,0.85) 100%),
+                  url('images/hero-bg.png') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 24px 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decorative circles */
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      border: 1px solid rgba(212,115,90,0.12);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 900px; height: 900px;
+      border-radius: 50%;
+      border: 1px solid rgba(212,115,90,0.06);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .hero-glow {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 55% 40% at 50% 60%, rgba(212,115,90,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 50% at 20% 30%, rgba(232,149,110,0.07) 0%, transparent 60%);
+    }
+
+    /* Petals */
+    .petals { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+    .petal {
+      position: absolute;
+      width: 4px; height: 7px;
+      background: rgba(212,115,90,0.22);
+      border-radius: 50% 50% 50% 0 / 60% 60% 40% 40%;
+      animation: floatDown linear infinite;
+    }
+    .petal:nth-child(1)  { left:  7%; animation-duration:16s; animation-delay: 0s; }
+    .petal:nth-child(2)  { left: 18%; animation-duration:12s; animation-delay: 3s; }
+    .petal:nth-child(3)  { left: 29%; animation-duration:17s; animation-delay: 6s; }
+    .petal:nth-child(4)  { left: 41%; animation-duration:13s; animation-delay: 1s; }
+    .petal:nth-child(5)  { left: 54%; animation-duration:15s; animation-delay: 8s; }
+    .petal:nth-child(6)  { left: 65%; animation-duration:11s; animation-delay: 4s; }
+    .petal:nth-child(7)  { left: 76%; animation-duration:14s; animation-delay: 9s; }
+    .petal:nth-child(8)  { left: 87%; animation-duration:18s; animation-delay: 2s; }
+    .petal:nth-child(9)  { left: 93%; animation-duration:12s; animation-delay: 7s; }
+    .petal:nth-child(10) { left: 45%; animation-duration:16s; animation-delay:11s; }
+    @keyframes floatDown {
+      0%   { transform: translateY(-10px) rotate(0deg);   opacity: 0; }
+      8%   { opacity: 0.8; }
+      92%  { opacity: 0.3; }
+      100% { transform: translateY(105vh) rotate(380deg); opacity: 0; }
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      width: 100%;
+      animation: fadeRise 1.2s 0.2s cubic-bezier(.22,.68,0,1.1) both;
+    }
+    @keyframes fadeRise {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-eyebrow {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 10px;
+      letter-spacing: 7px;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(80px, 20vw, 148px);
+      font-weight: 300;
+      color: var(--white);
+      display: flex;
+      justify-content: center;
+      letter-spacing: 20px;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .hero-salon {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      letter-spacing: 7px;
+      color: var(--salmon-pale);
+      margin-bottom: 52px;
+    }
+
+    .hero-catch {
+      font-size: clamp(16px, 3.8vw, 20px);
+      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+      line-height: 2.5;
+      margin-bottom: 48px;
+    }
+    .hero-catch em {
+      font-style: normal;
+      color: var(--gold-light);
+      font-weight: 400;
+    }
+
+    .hero-line {
+      width: 1px; height: 52px;
+      background: linear-gradient(to bottom, transparent, var(--salmon-lt), transparent);
+      margin: 0 auto 40px;
+    }
+
+    .btn-reserve {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--terra-grad);
+      color: var(--white);
+      padding: 15px 44px;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-decoration: none;
+      font-family: 'Noto Serif JP', serif;
+      border-radius: 40px;
+      box-shadow: 0 6px 24px rgba(212,115,90,0.35);
+      transition: opacity 0.48s cubic-bezier(.25,.46,.45,.94), transform 0.48s cubic-bezier(.25,.46,.45,.94), box-shadow 0.48s cubic-bezier(.25,.46,.45,.94);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-reserve::after {
+      content: '→';
+      font-size: 14px;
+      transition: transform 0.48s cubic-bezier(.25,.46,.45,.94);
+    }
+    .btn-reserve:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(212,115,90,0.45);
+      transition-duration: 0.22s;
+    }
+    .btn-reserve:hover::after { transform: translateX(4px); transition-duration: 0.22s; }
+
+    /* ═══ ACCESS BAR ═══ */
+    .access-bar {
+      background: var(--cream-mid);
+      border-top: 1px solid var(--salmon-pale);
+      border-bottom: 1px solid var(--salmon-pale);
+      padding: 14px 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+      flex-wrap: wrap;
+      overflow: hidden;
+    }
+    .access-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 20px;
+      font-size: 11px;
+      color: var(--text-mid);
+      letter-spacing: 1.5px;
+      border-right: 1px solid var(--cream-mid);
+      white-space: nowrap;
+    }
+    .access-item:last-child { border-right: none; }
+    .access-item strong { color: var(--gold); font-weight: 400; }
+    .access-dot {
+      width: 3px; height: 3px;
+      border-radius: 50%;
+      background: var(--salmon);
+      flex-shrink: 0;
+    }
+
+    /* ═══ SECTION BASE ═══ */
+    .sec { padding: 88px 24px; }
+    .sec-sm { padding: 64px 24px; }
+    .wrap { max-width: 720px; margin: 0 auto; }
+    .wrap-wide { max-width: 960px; margin: 0 auto; }
+
+    .sec-head {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .sec-head .eyebrow { margin-bottom: 14px; }
+
+    .sec-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 5.5vw, 42px);
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+    .sec-title--light { color: var(--white); }
+
+    /* ═══ PAIN SECTION ═══ */
+    .pain-sec { background: var(--white); }
+
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--cream-mid);
+      border: 1px solid var(--cream-mid);
+    }
+    @media (max-width: 480px) {
+      .pain-grid { grid-template-columns: 1fr; }
+    }
+
+    .pain-card {
+      background: var(--white);
+      padding: 32px 28px;
+      position: relative;
+      transition: background 0.48s cubic-bezier(.25,.46,.45,.94);
+    }
+    .pain-card:hover { background: var(--ivory); transition-duration: 0.22s; }
+    .pain-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: linear-gradient(to bottom, var(--salmon-pale), transparent);
+    }
+    .pain-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px;
+      font-weight: 300;
+      color: var(--salmon-pale);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .pain-title {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .pain-desc {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 2;
+    }
+
+    /* ═══ TRANSFORM BAR ═══ */
+    .transform-sec {
+      background: linear-gradient(135deg, #3A1F18 0%, #5C2E22 100%);
+      padding: 72px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .transform-sec::before {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      border: 1px solid rgba(212,115,90,0.1);
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      pointer-events: none;
+    }
+    .transform-inner { position: relative; z-index: 1; }
+    .transform-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(20px, 4vw, 34px);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.9;
+      margin-bottom: 12px;
+    }
+    .transform-title em { font-style: italic; color: var(--salmon-pale); }
+    .transform-sub {
+      font-size: 15px;
+      color: rgba(255,255,255,0.5);
+      line-height: 2;
+      margin-bottom: 40px;
+    }
+
+    /* ═══ CONCEPT ═══ */
+    .concept-sec { background: var(--ivory); }
+
+    .concept-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    @media (max-width: 640px) {
+      .concept-layout { grid-template-columns: 1fr; gap: 36px; }
+    }
+
+    .concept-img {
+      aspect-ratio: 3/4;
+      background: linear-gradient(160deg, var(--cream) 0%, var(--salmon-pale) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+    .concept-img::after {
+      content: '';
+      position: absolute;
+      inset: 12px;
+      border: 1px solid rgba(212,115,90,0.2);
+      pointer-events: none;
+    }
+    .concept-img-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 9px;
+      letter-spacing: 4px;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+    .concept-img-icon { font-size: 28px; opacity: 0.4; }
+
+    .concept-text .eyebrow { margin-bottom: 16px; }
+    .concept-text .sec-title { text-align: left; }
+    .concept-text .divider { margin: 0 0 28px; }
+    .concept-body {
+      font-size: 16px;
+      color: var(--text-mid);
+      line-height: 2.6;
+      margin-bottom: 20px;
+    }
+    .concept-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(15px, 2.5vw, 20px);
+      font-style: italic;
+      color: var(--salmon);
+      line-height: 1.9;
+      padding-left: 20px;
+      border-left: 2px solid var(--salmon-pale);
+      margin: 28px 0;
+    }
+
+    /* ═══ MENU ═══ */
+    .menu-sec { background: var(--cream); }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 720px) {
+      .menu-grid { grid-template-columns: 1fr; }
+    }
+    @media (min-width: 481px) and (max-width: 720px) {
+      .menu-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .menu-card {
+      background: var(--white);
+      padding: 36px 28px 32px;
+      position: relative;
+      border: 1px solid var(--cream-mid);
+      transition: transform 0.48s cubic-bezier(.25,.46,.45,.94), box-shadow 0.48s cubic-bezier(.25,.46,.45,.94);
+    }
+    .menu-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px var(--shadow);
+      transition-duration: 0.22s;
+    }
+    .menu-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--salmon), var(--salmon-pale));
+    }
+    .menu-badge {
+      position: absolute;
+      top: 20px; right: 20px;
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      color: var(--white);
+      background: var(--gold);
+      padding: 4px 10px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+    .menu-card .eyebrow { margin-bottom: 14px; }
+    .menu-card-title {
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 12px;
+      line-height: 1.7;
+    }
+    .menu-card-desc {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 2.2;
+      margin-bottom: 24px;
+    }
+    .menu-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 300;
+      color: var(--salmon);
+    }
+    .menu-price small {
+      font-size: 13px;
+      color: var(--text-lt);
+      margin-left: 2px;
+    }
+
+    /* ═══ ROSE TENT ═══ */
+    .rose-sec {
+      background: var(--ivory);
+    }
+    .rose-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--cream-mid);
+      border: 1px solid var(--cream-mid);
+      margin-bottom: 48px;
+    }
+    @media (max-width: 480px) {
+      .rose-grid { grid-template-columns: 1fr; }
+    }
+    .rose-card {
+      background: var(--white);
+      padding: 32px 28px;
+      transition: background 0.48s cubic-bezier(.25,.46,.45,.94);
+    }
+    .rose-card:hover { background: var(--ivory); transition-duration: 0.22s; }
+    .rose-icon { font-size: 22px; margin-bottom: 14px; display: block; }
+    .rose-title {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+    .rose-desc {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 2;
+    }
+
+    /* ═══ FOR WHOM ═══ */
+    .for-sec { background: var(--cream); }
+
+    .for-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 540px) {
+      .for-grid { grid-template-columns: 1fr; }
+    }
+    .for-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--white);
+      padding: 20px 20px;
+      border: 1px solid var(--cream-mid);
+      transition: border-color 0.48s cubic-bezier(.25,.46,.45,.94);
+    }
+    .for-item:hover { border-color: var(--salmon-pale); transition-duration: 0.22s; }
+    .for-check {
+      flex-shrink: 0;
+      width: 18px; height: 18px;
+      border: 1px solid var(--salmon-lt);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+    .for-check::after {
+      content: '✓';
+      font-size: 8px;
+      color: var(--salmon);
+    }
+    .for-text {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.9;
+    }
+
+    /* ═══ INFO ═══ */
+    .info-sec { background: var(--white); }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+    @media (max-width: 640px) {
+      .info-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+    .info-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--salmon);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--salmon-pale);
+    }
+    .info-body {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 2.4;
+    }
+    .info-body a {
+      color: var(--text-mid);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold-pale);
+      transition: border-color 0.2s;
+    }
+    .info-body a:hover { border-color: var(--gold); }
+
+    /* ═══ CTA SECTION ═══ */
+    .cta-sec {
+      background: linear-gradient(150deg, #3A1F18 0%, #5C2E22 100%);
+      padding: 96px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-sec::before {
+      content: '';
+      position: absolute;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      border: 1px solid rgba(212,115,90,0.08);
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      pointer-events: none;
+    }
+    .cta-inner { position: relative; z-index: 1; }
+    .cta-sec .eyebrow { margin-bottom: 20px; }
+    .cta-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(22px, 5vw, 40px);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+    .cta-sub {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      line-height: 2.2;
+      margin-bottom: 48px;
+    }
+    .cta-btns {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--line-green);
+      color: var(--white);
+      padding: 15px 40px;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-decoration: none;
+      font-family: 'Noto Serif JP', serif;
+      border-radius: 40px;
+      box-shadow: 0 4px 16px rgba(6,199,85,0.3);
+      transition: opacity 0.48s cubic-bezier(.25,.46,.45,.94), transform 0.48s cubic-bezier(.25,.46,.45,.94);
+    }
+    .btn-line:hover { opacity: 0.88; transform: translateY(-2px); transition-duration: 0.22s; }
+
+    /* ═══ FOOTER ═══ */
+    footer {
+      background: #2A1410;
+      padding: 48px 24px;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
+      letter-spacing: 14px;
+      color: rgba(255,255,255,0.15);
+      margin-bottom: 16px;
+    }
+    footer p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: rgba(255,255,255,0.2);
+      line-height: 2.2;
+    }
+
+    /* ═══ MOBILE OVERRIDES ═══ */
+    @media (max-width: 480px) {
+      .sec { padding: 64px 20px; }
+      .sec-sm { padding: 48px 20px; }
+      .nav { padding: 14px 20px; }
+      .nav-cta { padding: 12px 20px; font-size: 9px; }
+      .hero { padding: 90px 20px 56px; }
+      .hero-logo { letter-spacing: 12px; }
+      .hero-catch { font-size: 14px; line-height: 2.3; }
+      .btn-reserve { padding: 13px 36px; font-size: 10px; }
+      .access-item { padding: 4px 12px; font-size: 10px; }
+      .concept-quote { font-size: 14px; }
+      .cta-btns { flex-direction: column; align-items: center; }
+      .btn-line, .btn-tel { width: 100%; max-width: 280px; text-align: center; justify-content: center; }
+      .offer-sec { padding: 48px 20px; }
+      .therapist-layout { gap: 24px; }
+      .therapist-photo { aspect-ratio: 4/5; }
+      .voice-card { padding: 32px 24px 26px; }
+      .faq-q { padding: 18px 22px; font-size: 14px; }
+      .faq-a { padding: 0 22px 20px 22px; font-size: 13px; }
+    }
+
+    /* ═══ OFFER BANNER（初回特典） ═══ */
+    .offer-sec {
+      background: linear-gradient(180deg, var(--cream) 0%, var(--cream-mid) 100%);
+      padding: 56px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .offer-sec::before {
+      content: '';
+      position: absolute;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      border: 1px solid rgba(212,115,90,0.15);
+      top: -120px; right: -80px;
+      pointer-events: none;
+    }
+    .offer-wrap {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .offer-tag {
+      display: inline-block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      letter-spacing: 5px;
+      color: var(--white);
+      background: var(--salmon);
+      padding: 6px 18px;
+      margin-bottom: 20px;
+    }
+    .offer-title {
+      font-size: clamp(18px, 3.6vw, 26px);
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.9;
+      margin-bottom: 14px;
+    }
+    .offer-title em { font-style: normal; color: var(--salmon); font-weight: 400; }
+    .offer-strike {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      color: var(--text-lt);
+      text-decoration: line-through;
+      margin-bottom: 6px;
+      letter-spacing: 1px;
+    }
+    .offer-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(40px, 8vw, 60px);
+      font-weight: 300;
+      color: var(--terra);
+      line-height: 1;
+      margin-bottom: 18px;
+    }
+    .offer-price small { font-size: 15px; color: var(--text-mid); margin-left: 4px; font-family: 'Noto Serif JP', serif; }
+    .offer-note {
+      font-size: 12px;
+      color: var(--text-mid);
+      letter-spacing: 1px;
+      margin-bottom: 28px;
+      line-height: 2;
+    }
+
+    /* ═══ THERAPIST PROFILE ═══ */
+    .therapist-sec { background: var(--white); }
+    .therapist-layout {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    @media (max-width: 640px) {
+      .therapist-layout { grid-template-columns: 1fr; gap: 36px; }
+    }
+    .therapist-photo {
+      aspect-ratio: 3/4;
+      background: linear-gradient(160deg, var(--cream) 0%, var(--salmon-pale) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .therapist-photo::after {
+      content: '';
+      position: absolute;
+      inset: 12px;
+      border: 1px solid rgba(255,255,255,0.5);
+      pointer-events: none;
+    }
+    .therapist-photo-placeholder {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: var(--gold);
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 2.2;
+    }
+    .therapist-text .eyebrow { margin-bottom: 14px; }
+    .therapist-text .sec-title { text-align: left; }
+    .therapist-text .divider { margin: 0 0 24px; }
+    .therapist-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--text);
+      letter-spacing: 4px;
+      line-height: 1;
+      margin: 4px 0 0;
+    }
+    .therapist-name small {
+      display: block;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 13px;
+      color: var(--text-mid);
+      letter-spacing: 2px;
+      margin-top: 10px;
+      font-weight: 300;
+    }
+    .therapist-body {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 2.4;
+      margin: 22px 0 0;
+    }
+    .therapist-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(15px, 2.6vw, 19px);
+      font-style: italic;
+      color: var(--salmon);
+      line-height: 1.9;
+      padding-left: 20px;
+      border-left: 2px solid var(--salmon-pale);
+      margin-top: 24px;
+    }
+
+    /* ═══ VOICE（お客様の声） ═══ */
+    .voice-sec { background: var(--ivory); }
+    .voice-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 720px) {
+      .voice-grid { grid-template-columns: 1fr; gap: 16px; }
+    }
+    .voice-card {
+      background: var(--white);
+      padding: 40px 28px 28px;
+      border: 1px solid var(--cream-mid);
+      position: relative;
+      transition: transform 0.48s cubic-bezier(.25,.46,.45,.94), box-shadow 0.48s cubic-bezier(.25,.46,.45,.94);
+    }
+    .voice-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px var(--shadow);
+      transition-duration: 0.22s;
+    }
+    .voice-card::before {
+      content: '"';
+      position: absolute;
+      top: 4px; left: 20px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 72px;
+      color: var(--salmon-pale);
+      line-height: 1;
+      font-style: italic;
+    }
+    .voice-tag {
+      display: inline-block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--gold);
+      border: 1px solid var(--gold-pale);
+      padding: 4px 12px;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
+    }
+    .voice-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 2.2;
+      margin-bottom: 22px;
+      position: relative;
+      z-index: 1;
+    }
+    .voice-author {
+      font-size: 12px;
+      color: var(--text-mid);
+      letter-spacing: 1.5px;
+      border-top: 1px solid var(--cream-mid);
+      padding-top: 14px;
+    }
+    .voice-author strong {
+      color: var(--salmon);
+      font-weight: 400;
+    }
+
+    /* ═══ FAQ ═══ */
+    .faq-sec { background: var(--cream); }
+    .faq-list { display: flex; flex-direction: column; gap: 12px; }
+    .faq-item {
+      background: var(--white);
+      border: 1px solid var(--cream-mid);
+      transition: border-color 0.48s cubic-bezier(.25,.46,.45,.94);
+    }
+    .faq-item[open] { border-color: var(--salmon-pale); }
+    .faq-q {
+      padding: 22px 28px;
+      cursor: pointer;
+      font-size: 15px;
+      color: var(--text);
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      line-height: 1.7;
+      transition: color 0.3s;
+    }
+    .faq-q::-webkit-details-marker { display: none; }
+    .faq-q::before {
+      content: 'Q';
+      flex-shrink: 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      color: var(--salmon);
+      font-style: italic;
+      line-height: 1;
+    }
+    .faq-q::after {
+      content: '+';
+      flex-shrink: 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      color: var(--salmon-lt);
+      transition: transform 0.3s;
+      margin-left: auto;
+    }
+    .faq-item[open] .faq-q::after { content: '−'; }
+    .faq-q:hover { color: var(--salmon); }
+    .faq-a {
+      padding: 0 28px 24px 28px;
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 2.2;
+      display: flex;
+      gap: 14px;
+    }
+    .faq-a::before {
+      content: 'A';
+      flex-shrink: 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      color: var(--gold);
+      font-style: italic;
+      line-height: 1;
+    }
+
+    /* ═══ PREVIEW BANNER（本番ではない目印） ═══ */
+    .preview-banner {
+      position: relative;
+      z-index: 200;
+      background: linear-gradient(90deg, #3A1F18 0%, #5C2E22 100%);
+      color: #FAF3F0;
+      padding: 12px 16px;
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 2px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-family: 'Noto Serif JP', serif;
+      border-bottom: 1px solid rgba(212,115,90,0.3);
+    }
+    .preview-banner-tag {
+      background: var(--salmon);
+      color: var(--white);
+      padding: 4px 10px;
+      letter-spacing: 4px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+    }
+    .preview-banner-text { color: rgba(255,255,255,0.88); }
+    .preview-banner-date { color: rgba(255,255,255,0.45); font-size: 10px; letter-spacing: 2px; }
+    @media (max-width: 480px) {
+      .preview-banner { font-size: 10px; gap: 8px; padding: 10px 12px; }
+      .preview-banner-date { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- PREVIEW BANNER -->
+<div class="preview-banner" role="alert" aria-label="プレビュー表示">
+  <span class="preview-banner-tag">PREVIEW</span>
+  <span class="preview-banner-text">これは改善案v1のプレビューです（本番ではありません）</span>
+  <span class="preview-banner-date">2026-05-30</span>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav" role="navigation" aria-label="メインナビゲーション">
+  <a href="#" class="nav-logo" aria-label="SERA トップへ"><img src="images/sera-logo.png" alt="SERA" style="height:32px;width:auto;"></a>
+  <a href="#reserve" class="nav-cta">ご予約</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" aria-label="ヒーロー">
+  <div class="hero-glow"></div>
+  <div class="petals" aria-hidden="true">
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="petal"></div>
+  </div>
+  <div class="hero-inner">
+    <p class="hero-eyebrow">宇美の女性専用リラクゼーションサロン</p>
+    <h1 class="hero-logo" aria-label="SERA"><img src="images/sera-logo-white.png" alt="SERA Relaxation Salon" style="height:clamp(100px,25vw,180px);width:auto;"></h1>
+    <p class="hero-catch">
+      体<span class="sm">が</span>重い。心<span class="sm">が</span>休<span class="sm">まら</span>ない。<br>
+      忙<span class="sm">しさの</span>中<span class="sm">で、</span><em>自分<span class="sm">の</span>こと<span class="sm">が</span>後回し</em><span class="sm">に</span>なっていませんか？<br>
+      <span style="color:rgba(255,255,255,0.9);font-size:.95em">ここ<span class="sm">は、</span>あなただけ<span class="sm">の</span>時間<span class="sm">と</span>空間です。</span>
+    </p>
+    <div class="hero-line" aria-hidden="true"></div>
+    <a href="#reserve" class="btn-reserve">ご予約はこちら</a>
+  </div>
+</section>
+
+<!-- ACCESS BAR -->
+<div class="access-bar" role="complementary" aria-label="アクセス情報">
+  <div class="access-item"><span class="access-dot"></span><strong>宇美駅から徒歩5分</strong></div>
+  <div class="access-item"><span class="access-dot"></span>完全予約制</div>
+  <div class="access-item"><span class="access-dot"></span>女性専用</div>
+  <div class="access-item"><span class="access-dot"></span>10:00〜20:00</div>
+</div>
+
+<!-- OFFER BANNER（初回特典） -->
+<section class="offer-sec" aria-labelledby="offer-heading">
+  <div class="offer-wrap reveal">
+    <span class="offer-tag">First Visit</span>
+    <h2 class="offer-title" id="offer-heading">
+      はじめての方へ。<br>
+      <em>ローズ蒸しテント20分</em> を、特別価格で。
+    </h2>
+    <p class="offer-strike">通常 ¥3,850</p>
+    <p class="offer-price">¥2,750<small>（税込）</small></p>
+    <p class="offer-note">
+      ※ お一人様1回限り／LINEご予約時に「初回モニター希望」とお伝えください<br>
+      <span style="color:var(--text-lt);font-size:11px;">※ 価格はプレースホルダー。大瀬良さんと最終調整予定。</span>
+    </p>
+    <a href="#reserve" class="btn-reserve">この特典で予約する</a>
+  </div>
+</section>
+
+<!-- PAIN POINTS -->
+<section class="sec pain-sec" aria-labelledby="pain-heading">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">こんなお悩みありませんか？</span>
+      <h2 class="sec-title" id="pain-heading">
+        毎日<span class="sm">の</span>疲<span class="sm">れ、</span><br>
+        ちゃんと癒<span class="sm">せていますか。</span>
+      </h2>
+      <div class="divider"></div>
+    </div>
+    <div class="pain-grid reveal reveal-d1">
+      <div class="pain-card">
+        <div class="pain-num">01</div>
+        <p class="pain-title">体の深いところが重い</p>
+        <p class="pain-desc">マッサージしても、すぐ元に戻る。体の奥の疲れがなかなか抜けない。</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">02</div>
+        <p class="pain-title">ホルモンバランスの乱れ</p>
+        <p class="pain-desc">PMSや更年期・妊活・冷えなど、女性特有のお悩みが続いている。</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">03</div>
+        <p class="pain-title">心が休まらない</p>
+        <p class="pain-desc">育児や仕事で「自分だけの時間」がなかなか取れない日々が続いている。</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">04</div>
+        <p class="pain-title">アレルギーが心配</p>
+        <p class="pain-desc">施術を受けたいけど、敏感肌や化学物質アレルギーが気になっている。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSFORMATION -->
+<div class="transform-sec reveal" role="complementary">
+  <div class="transform-inner">
+    <span class="eyebrow" style="color:var(--salmon-pale)">Before → After</span>
+    <p class="transform-title" style="margin-top:16px">
+      施術後、「体が軽い」「よく眠れた」<em>「自分に戻れた」</em><br>
+      そう感じるお客様が続々と。
+    </p>
+    <p class="transform-sub">
+      SERAのトリートメントは、表面だけでなく体の芯から整えます。<br>
+      自然治癒力を高め、あなた本来の輝きを取り戻すために。
+    </p>
+    <a href="#reserve" class="btn-reserve">まずは予約してみる</a>
+  </div>
+</div>
+
+<!-- CONCEPT -->
+<section class="sec concept-sec" aria-labelledby="concept-heading">
+  <div class="wrap">
+    <div class="concept-layout reveal">
+      <div class="concept-img" aria-hidden="true">
+        <img src="images/sera-space.jpg" alt="SERAサロンの癒しの空間" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="concept-text">
+        <span class="eyebrow">Concept</span>
+        <h2 class="sec-title hdg" id="concept-heading">
+          癒<span class="sm">しの</span>空間<span class="sm">にこだわった</span><br>
+          プライベートサロン
+        </h2>
+        <div class="divider divider--left"></div>
+        <p class="concept-body" style="margin-top:24px">
+          日常の喧騒を離れ、ただあなただけのための時間を。<br>
+          完全予約制だから、他のお客様と顔を合わせる心配なく、
+          ゆったりとした贅沢な時間をお過ごしいただけます。
+        </p>
+        <blockquote class="concept-quote">
+          「ゆっくりと日頃の疲れを癒せる、<br>
+          あなただけの場所がここにあります。」
+        </blockquote>
+        <p class="concept-body" style="margin-bottom:0">
+          完全予約制・女性専用サロンですので、<br>
+          はじめての方も安心してご来店いただけます。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THERAPIST PROFILE -->
+<section class="sec therapist-sec" aria-labelledby="therapist-heading">
+  <div class="wrap-wide">
+    <div class="therapist-layout reveal">
+      <div class="therapist-photo" aria-hidden="true">
+        <span class="therapist-photo-placeholder">PHOTO<br>COMING<br>SOON</span>
+      </div>
+      <div class="therapist-text">
+        <span class="eyebrow">Therapist</span>
+        <h2 class="sec-title hdg" id="therapist-heading">
+          施術者<span class="sm">のご紹介</span>
+        </h2>
+        <div class="divider divider--left"></div>
+        <p class="therapist-name">OSERA AYU<small>大瀬良 あゆ ／ SERA代表</small></p>
+        <p class="therapist-body">
+          ※ プレースホルダー：プロフィール本文を大瀬良さんから回収予定。<br>
+          経歴・取得資格・サロンを開いた想い（仙骨特化トリートメント／妊活ケアの専門性／宇美町で女性専用サロンを始めた理由）をここに記載します。
+        </p>
+        <blockquote class="therapist-quote">
+          「※ 想いの一行プレースホルダー。<br>
+          『あなたのための時間』を、私が責任を持ってお預かりします。」
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="sec menu-sec" id="menu" aria-labelledby="menu-heading">
+  <div class="wrap-wide">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Menu</span>
+      <h2 class="sec-title" id="menu-heading">
+        メニュー
+      </h2>
+      <div class="divider"></div>
+    </div>
+    <div class="reveal" style="margin-bottom:32px;overflow:hidden;border-radius:8px;">
+      <img src="images/sera-treatment.jpg" alt="SERAの施術風景" style="width:100%;max-height:360px;object-fit:cover;display:block;">
+    </div>
+    <div class="menu-grid reveal reveal-d1">
+      <div class="menu-card">
+        <span class="eyebrow">Relaxation</span>
+        <h3 class="menu-card-title">全身リンパドレナージュ<small style="display:block;font-size:.7em;font-weight:300;margin-top:4px;">90分</small></h3>
+        <p class="menu-card-desc">
+          リンパの流れを丁寧に促し、老廃物の排出をサポート。
+          心と身体をゆるやかにほぐしながら、内側から整う健やかな状態へ導きます。
+        </p>
+        <p class="menu-price">¥7,700</p>
+      </div>
+      <div class="menu-card">
+        <span class="eyebrow">Rose Steam</span>
+        <h3 class="menu-card-title">ローズ蒸しテント<small style="display:block;font-size:.7em;font-weight:300;margin-top:4px;">20分〜</small></h3>
+        <p class="menu-card-desc">
+          精油100%のローズオイルの蒸気を全身で浴びる、極上のデトックス体験。
+          自然の力で体の内側から温めます。
+        </p>
+        <p class="menu-price">¥3,850<small>〜</small></p>
+      </div>
+      <div class="menu-card">
+        <div class="menu-badge">Recommend</div>
+        <span class="eyebrow">Set Menu</span>
+        <h3 class="menu-card-title">ローズ蒸しテント20分<br>＋全身リンパドレナージュ90分</h3>
+        <p class="menu-card-desc">
+          リンパドレナージュとローズ蒸しテントを組み合わせた贅沢なフルコース。
+          相乗効果でより深いリラクゼーションへ。
+        </p>
+        <p class="menu-price">¥11,550</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROSE TENT -->
+<section class="sec rose-sec" aria-labelledby="rose-heading">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Rose Steam Tent</span>
+      <h2 class="sec-title" id="rose-heading">
+        ローズ蒸<span class="sm">しテントとは？</span>
+      </h2>
+      <div class="divider"></div>
+    </div>
+    <div class="reveal" style="margin-bottom:40px;overflow:hidden;">
+      <img src="images/sera-tent.jpg" alt="ローズ蒸しテント" style="width:100%;max-height:400px;object-fit:cover;display:block;border-radius:8px;">
+    </div>
+    <div class="rose-grid reveal reveal-d1">
+      <div class="rose-card">
+        <span class="rose-icon">🌹</span>
+        <p class="rose-title">薔薇の蒸気を全身に</p>
+        <p class="rose-desc">テント内に入り、ローズの香り豊かな蒸気を全身で浴びることができます</p>
+      </div>
+      <div class="rose-card">
+        <span class="rose-icon">💧</span>
+        <p class="rose-title">精油100%使用</p>
+        <p class="rose-desc">ローズオイルは精油100%のものだけを使用。本物の香りと効果をお届けします</p>
+      </div>
+      <div class="rose-card">
+        <span class="rose-icon">🌿</span>
+        <p class="rose-title">アレルギー対応</p>
+        <p class="rose-desc">PMS・更年期・妊活・温活・ダイエット・アレルギーをお持ちの方にも対応</p>
+      </div>
+      <div class="rose-card">
+        <span class="rose-icon">✨</span>
+        <p class="rose-title">内側から輝く</p>
+        <p class="rose-desc">自然免疫力・自然治癒力を高め、さまざまな悩みに幅広く対応します</p>
+      </div>
+    </div>
+    <div class="reveal" style="margin-top:40px;overflow:hidden;border-radius:8px;">
+      <img src="images/sera-rose-steam.jpg" alt="ローズ蒸しテント体験中" style="width:100%;max-height:400px;object-fit:cover;display:block;">
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHOM -->
+<section class="sec for-sec" aria-labelledby="for-heading">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">For</span>
+      <h2 class="sec-title" id="for-heading">
+        こんな方<span class="sm">に</span>おすすめ<span class="sm">です</span>
+      </h2>
+      <div class="divider"></div>
+    </div>
+    <div class="for-grid reveal reveal-d1">
+      <div class="for-item">
+        <span class="for-check" aria-hidden="true"></span>
+        <p class="for-text">妊婦・子育てママに特化した施術を受けたい方</p>
+      </div>
+      <div class="for-item">
+        <span class="for-check" aria-hidden="true"></span>
+        <p class="for-text">自然治癒力・自然免疫力を高めたい方</p>
+      </div>
+      <div class="for-item">
+        <span class="for-check" aria-hidden="true"></span>
+        <p class="for-text">仙骨に特化したトリートメントを受けたい方</p>
+      </div>
+      <div class="for-item">
+        <span class="for-check" aria-hidden="true"></span>
+        <p class="for-text">PMS・更年期・妊活・温活・ダイエットが気になる方</p>
+      </div>
+      <div class="for-item">
+        <span class="for-check" aria-hidden="true"></span>
+        <p class="for-text">アレルギーをお持ちの方</p>
+      </div>
+      <div class="for-item">
+        <span class="for-check" aria-hidden="true"></span>
+        <p class="for-text">日々の疲れをプライベート空間でゆっくり癒したい方</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VOICE（お客様の声） -->
+<section class="sec voice-sec" aria-labelledby="voice-heading">
+  <div class="wrap-wide">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Voice</span>
+      <h2 class="sec-title" id="voice-heading">
+        通<span class="sm">っていただいている</span>方<span class="sm">の声</span>
+      </h2>
+      <div class="divider"></div>
+    </div>
+    <div class="voice-grid reveal reveal-d1">
+      <div class="voice-card">
+        <span class="voice-tag">妊活ケア</span>
+        <p class="voice-body">
+          ※ プレースホルダー：妊活で通われているお客様の声をここに。<br>
+          「冷えが和らいだ」「体の芯が温かい」など、具体的な変化を1〜2文で。
+        </p>
+        <p class="voice-author"><strong>M.K 様</strong> ／ 30代・宇美町在住</p>
+      </div>
+      <div class="voice-card">
+        <span class="voice-tag">更年期ケア</span>
+        <p class="voice-body">
+          ※ プレースホルダー：更年期世代のお客様の声をここに。<br>
+          「夜よく眠れるようになった」「気持ちが落ち着いた」など。
+        </p>
+        <p class="voice-author"><strong>Y.S 様</strong> ／ 50代・粕屋町在住</p>
+      </div>
+      <div class="voice-card">
+        <span class="voice-tag">冷え・疲労</span>
+        <p class="voice-body">
+          ※ プレースホルダー：日常の疲れで通われているお客様の声をここに。<br>
+          「次の朝が軽い」「自分の時間がやっと取れた」など。
+        </p>
+        <p class="voice-author"><strong>A.T 様</strong> ／ 40代・福岡市在住</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec faq-sec" aria-labelledby="faq-heading">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2 class="sec-title" id="faq-heading">よくあるご質問</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="faq-list reveal reveal-d1">
+      <details class="faq-item">
+        <summary class="faq-q">はじめてです。何を持っていけばいいですか？</summary>
+        <p class="faq-a">手ぶらでお越しいただけます。タオル・着替え（ローズ蒸しテント用）は当店でご用意しております。お時間に少し余裕を持ってお越しいただけると安心です。</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">妊娠中でも施術を受けられますか？</summary>
+        <p class="faq-a">マタニティ対応の施術もご用意しております。ご予約時に妊娠週数をお知らせいただければ、お身体に合わせたメニューをご提案いたします。安定期に入られた方を中心におすすめしております。</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">予約はどうやって取れますか？</summary>
+        <p class="faq-a">LINE・お電話（090-1922-9911）・メールのいずれでも承っております。LINEからのご予約が一番スムーズです。完全予約制のため、お早めのご連絡をおすすめいたします。</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">小さな子どもを連れて行ってもいいですか？</summary>
+        <p class="faq-a">※ プレースホルダー：お子様連れの可否・条件を大瀬良さんと確定後に記載。</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">キャンセルや変更はできますか？</summary>
+        <p class="faq-a">※ プレースホルダー：キャンセルポリシー（前日まで／当日連絡など）を大瀬良さんと確定後に記載。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- INFO -->
+<section class="sec info-sec" id="reserve" aria-labelledby="info-heading">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Information</span>
+      <h2 class="sec-title" id="info-heading">サロン情報</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="info-grid reveal reveal-d1">
+      <div class="info-block">
+        <p class="info-label">Access</p>
+        <address class="info-body" style="font-style:normal">
+          宇美駅から徒歩5分<br>
+          福岡県糟屋郡宇美町<br>
+          貴船1丁目1-7 2F
+        </address>
+      </div>
+      <div class="info-block">
+        <p class="info-label">Hours</p>
+        <p class="info-body">
+          営業時間：10:00〜20:00<br>
+          定休日：不定休<br>
+          ※完全予約制
+        </p>
+      </div>
+      <div class="info-block">
+        <p class="info-label">Contact</p>
+        <p class="info-body">
+          <a href="tel:09019229911">090-1922-9911</a><br>
+          <a href="mailto:seraayu7096@gmail.com" style="font-size:11px">seraayu7096@gmail.com</a><br>
+          LINE・各SNSでも受付中
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERIOR PHOTO -->
+<div class="reveal" style="padding:0 24px 48px;max-width:800px;margin:0 auto;">
+  <img src="images/sera-interior.jpg" alt="SERAサロンのインテリア" style="width:100%;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.08);" loading="lazy">
+</div>
+
+<!-- CTA FINAL -->
+<section class="cta-sec" aria-labelledby="cta-heading">
+  <div class="cta-inner">
+    <span class="eyebrow" style="color:var(--salmon-pale)">Reservation</span>
+    <h2 class="cta-title" id="cta-heading" style="margin-top:16px">
+      「自分<span class="sm">の</span>ための時間」<span class="sm">を、</span><br>
+      今日<span class="sm">から</span>始<span class="sm">めてみませんか。</span>
+    </h2>
+    <p class="cta-sub">
+      完全予約制・女性専用プライベートサロン<br>
+      宇美駅から徒歩5分　／　10:00〜20:00<br>
+      <span style="color:rgba(255,255,255,0.6);font-size:11px;margin-top:8px;display:inline-block;">※ 当日予約は埋まりやすくなっております。お早めにどうぞ。</span>
+    </p>
+    <div class="cta-btns">
+      <a href="https://page.line.me/962yasuq" class="btn-line" aria-label="LINEで予約する">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+        LINEで予約する
+      </a>
+      <p style="font-size:12px;color:rgba(255,255,255,0.45);letter-spacing:1px;">お電話：<a href="tel:09019229911" style="color:rgba(255,255,255,0.55);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">090-1922-9911</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-logo" aria-hidden="true">SERA</p>
+  <p>© 2026 Relaxation Salon SERA. All rights reserved.</p>
+  <p style="margin-top:6px">Produced by Fukuoka-connect</p>
+</footer>
+
+<script>
+  // ─ Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ─ Sticky nav style
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  // ─ GA4 Custom Events
+
+  // 1. CTA click tracking
+  document.querySelectorAll('.btn-reserve, .btn-line, .btn-tel, a[href^="tel:"]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      gtag('event', 'cta_click', {
+        cta_text: btn.textContent.trim(),
+        cta_url: btn.getAttribute('href')
+      });
+    });
+  });
+
+  // 2. Scroll depth tracking (25/50/75/100%)
+  const scrollThresholds = [25, 50, 75, 100];
+  const scrollFired = {};
+  window.addEventListener('scroll', () => {
+    const scrollPercent = Math.round((window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100);
+    scrollThresholds.forEach(t => {
+      if (scrollPercent >= t && !scrollFired[t]) {
+        scrollFired[t] = true;
+        gtag('event', 'scroll_depth', { depth: t + '%' });
+      }
+    });
+  }, { passive: true });
+
+  // 3. Section view tracking
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        gtag('event', 'section_view', {
+          section_id: e.target.getAttribute('aria-labelledby') || e.target.className.split(' ')[0]
+        });
+        sectionObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('section, .transform-sec, .access-bar').forEach(s => sectionObserver.observe(s));
+</script>
+</body>
+</html>
