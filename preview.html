@@ -973,6 +973,60 @@
       border-left: 2px solid var(--salmon-pale);
       margin-top: 24px;
     }
+    .therapist-creds {
+      margin: 26px 0 0;
+      padding: 20px 22px;
+      background: var(--cream);
+      border: 1px solid var(--salmon-pale);
+      border-radius: 4px;
+    }
+    .therapist-creds h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: var(--text);
+      margin: 0 0 14px;
+    }
+    .therapist-creds ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .therapist-creds li {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.7;
+      padding-left: 18px;
+      position: relative;
+      margin-bottom: 12px;
+    }
+    .therapist-creds li:last-child { margin-bottom: 0; }
+    .therapist-creds li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 9px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--salmon);
+    }
+    .therapist-creds li small {
+      display: block;
+      font-size: 12px;
+      color: var(--text-light, #999);
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+    .therapist-creds .creds-org {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--salmon-pale);
+      font-size: 12px;
+      color: var(--text-mid);
+      line-height: 1.8;
+    }
 
     /* ═══ VOICE（お客様の声） ═══ */
     .voice-sec { background: var(--ivory); }
@@ -1294,13 +1348,30 @@
         <div class="divider divider--left"></div>
         <p class="therapist-name">OSERA AYUMI<small>大瀬良 歩美 ／ SERA代表</small></p>
         <p class="therapist-body">
-          ※ プレースホルダー：プロフィール本文を大瀬良さんから回収予定。<br>
-          経歴・取得資格・サロンを開いた想い（仙骨特化トリートメント／妊活ケアの専門性／宇美町で女性専用サロンを始めた理由）をここに記載します。
+          「人の役に立ちたい」「誰かを笑顔にしたい」という気持ちから、リラクゼーションサロンをオープンしました。<br>
+          毎日頑張っている皆さまが、ほっと心を休められる癒しの場所になれるよう、一人ひとりに寄り添いながらお手伝いさせていただきます。
         </p>
         <blockquote class="therapist-quote">
-          「※ 想いの一行プレースホルダー。<br>
-          『あなたのための時間』を、私が責任を持ってお預かりします。」
+          「どうぞお気軽にお越しください。<br>
+          あなたのための時間を、心を込めてお預かりします。」
         </blockquote>
+        <div class="therapist-creds">
+          <h3>保有資格・認定</h3>
+          <ul>
+            <li>リンパドレナージュセラピスト認定資格取得
+              <small>認定番号：A-051 ／ 認定証発行日：2024年3月1日</small>
+            </li>
+            <li>ローズ蒸しテント加盟店認定
+              <small>RELAXATION SALON SERA ／ 加盟店番号：No.124</small>
+            </li>
+            <li>ジュエリー耳つぼセラピスト講座修了
+              <small>修了日：2025年2月12日</small>
+            </li>
+          </ul>
+          <div class="creds-org">
+            認定団体：Re All Academy（リンパドレナージュ）／ Organic Rose Association（ローズ蒸しテント加盟店）／ 日本トータルビューティセラピスト協会（ジュエリー耳つぼ）
+          </div>
+        </div>
       </div>
     </div>
   </div>
