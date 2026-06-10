@@ -45,7 +45,7 @@
     "image": "https://fukuoka-connect.github.io/sera/images/ogp.png",
     "telephone": "+81-80-5272-5013",
     "email": "seraayu7096@gmail.com",
-    "priceRange": "¥2,050〜¥20,500",
+    "priceRange": "¥2,750〜¥11,550",
     "currenciesAccepted": "JPY",
     "paymentAccepted": "Cash",
     "address": {
@@ -137,12 +137,15 @@
     .divider--left { margin: 0; }
 
     /* ═══ REVEAL ANIMATION ═══ */
-    .reveal {
+    /* 既定は表示（JS/IntersectionObserver未発火でもコンテンツが隠れない）。
+       JS有効時のみ .js-anim を body に付与してフェードイン演出を有効化する */
+    .reveal { opacity: 1; transform: none; }
+    .js-anim .reveal {
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.9s ease, transform 0.9s ease;
     }
-    .reveal.in { opacity: 1; transform: translateY(0); }
+    .js-anim .reveal.in { opacity: 1; transform: translateY(0); }
     .reveal-d1 { transition-delay: 0.1s; }
     .reveal-d2 { transition-delay: 0.2s; }
     .reveal-d3 { transition-delay: 0.3s; }
@@ -178,28 +181,31 @@
     .nav-cta {
       font-size: 10px;
       letter-spacing: 3px;
-      color: var(--white);
-      border: 1px solid rgba(255,255,255,0.5);
-      padding: 8px 20px;
+      color: #fff;
+      background: var(--line-green);
+      border: 1px solid var(--line-green);
+      padding: 10px 20px;
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
       text-decoration: none;
       transition: all 0.48s cubic-bezier(.25,.46,.45,.94);
       font-family: 'Noto Serif JP', serif;
     }
     .nav.scrolled .nav-cta {
-      color: var(--text);
-      border-color: var(--salmon-lt);
+      color: #fff;
+      background: var(--line-green);
+      border-color: var(--line-green);
     }
     .nav-cta:hover {
-      background: var(--salmon);
-      border-color: var(--salmon);
-      color: var(--white);
+      opacity: 0.9;
       transition-duration: 0.22s;
     }
 
     /* ═══ HERO ═══ */
     .hero {
-      min-height: 100svh;
       min-height: 100vh;
+      min-height: 100svh;
       background: linear-gradient(150deg, rgba(58,31,24,0.82) 0%, rgba(92,46,34,0.78) 50%, rgba(74,34,24,0.85) 100%),
                   url('images/hero-bg.png') center/cover no-repeat;
       display: flex;
@@ -817,7 +823,7 @@
       .sec { padding: 64px 20px; }
       .sec-sm { padding: 48px 20px; }
       .nav { padding: 14px 20px; }
-      .nav-cta { padding: 12px 20px; font-size: 9px; }
+      .nav-cta { padding: 11px 18px; font-size: 11px; }
       .hero { padding: 90px 20px 56px; }
       .hero-logo { letter-spacing: 12px; }
       .hero-catch { font-size: 14px; line-height: 2.3; }
@@ -1152,6 +1158,127 @@
       line-height: 1;
     }
 
+    /* ═══ CTA MICROCOPY（予約直前の不安解消） ═══ */
+    .cta-micro {
+      margin-top: 14px;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.62);
+    }
+    .cta-micro.on-light { color: var(--text-mid); }
+
+    /* ═══ OFFER 安心ストリップ ═══ */
+    .offer-trust {
+      font-size: 12px;
+      color: var(--text-mid);
+      letter-spacing: 0.5px;
+      line-height: 2;
+      margin-bottom: 22px;
+    }
+
+    /* ═══ 電話ボタン（LINEに従属する副導線） ═══ */
+    .btn-tel-outline, .btn-tel-light {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 52px;
+      padding: 14px 32px;
+      border-radius: 40px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-decoration: none;
+      font-family: 'Noto Serif JP', serif;
+      transition: all 0.3s;
+    }
+    .btn-tel-outline {
+      border: 1px solid rgba(255,255,255,0.4);
+      color: rgba(255,255,255,0.85);
+    }
+    .btn-tel-outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.7); }
+    .btn-tel-light {
+      border: 1px solid var(--salmon-lt);
+      color: var(--terra);
+    }
+    .btn-tel-light:hover { background: var(--cream); }
+
+    /* ═══ STICKY CTA BAR（モバイル：ヒーロー通過後にフェードイン／最終CTAで退避） ═══ */
+    .sticky-cta {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      z-index: 150;
+      display: none;
+      gap: 8px;
+      padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+      background: rgba(253,249,247,0.96);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 -2px 14px rgba(212,115,90,0.16);
+      opacity: 0;
+      transform: translateY(100%);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .sticky-cta.show { opacity: 1; transform: translateY(0); }
+    .sticky-line, .sticky-tel {
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 40px;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-decoration: none;
+      font-family: 'Noto Serif JP', serif;
+      color: #fff;
+    }
+    .sticky-line { flex: 2; background: var(--line-green); }
+    .sticky-tel { flex: 1; background: var(--terra); }
+    @media (max-width: 768px) { .sticky-cta { display: flex; } }
+
+    /* ═══ ご予約の流れ ═══ */
+    .flow-sec { background: var(--white); }
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 640px) { .flow-grid { grid-template-columns: 1fr; gap: 12px; } }
+    .flow-step {
+      background: var(--ivory);
+      border: 1px solid var(--cream-mid);
+      padding: 32px 26px;
+      position: relative;
+    }
+    .flow-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 34px;
+      font-weight: 300;
+      color: var(--salmon-pale);
+      line-height: 1;
+      display: block;
+      margin-bottom: 12px;
+    }
+    .flow-title {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .flow-desc {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 2;
+    }
+
+    /* ═══ MOTION配慮（酔い・低スペック端末対策） ═══ */
+    @media (prefers-reduced-motion: reduce) {
+      .petal { display: none; }
+      .reveal, .js-anim .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+      .hero-inner { animation: none !important; }
+      html { scroll-behavior: auto; }
+    }
+
     /* ═══ PREVIEW BANNER（本番ではない目印） ═══ */
     .preview-banner {
       position: relative;
@@ -1191,14 +1318,14 @@
 <!-- PREVIEW BANNER -->
 <div class="preview-banner" role="alert" aria-label="プレビュー表示">
   <span class="preview-banner-tag">PREVIEW</span>
-  <span class="preview-banner-text">これは改善案v1のプレビューです（本番ではありません）</span>
-  <span class="preview-banner-date">2026-05-30</span>
+  <span class="preview-banner-text">これは改善案v2（予約導線・CV改善版）のプレビューです（本番ではありません）</span>
+  <span class="preview-banner-date">2026-06-10</span>
 </div>
 
 <!-- NAV -->
 <nav class="nav" id="nav" role="navigation" aria-label="メインナビゲーション">
   <a href="#" class="nav-logo" aria-label="SERA トップへ"><img src="images/sera-logo.png" alt="SERA" style="height:32px;width:auto;"></a>
-  <a href="#reserve" class="nav-cta">ご予約</a>
+  <a href="https://page.line.me/962yasuq" target="_blank" rel="noopener" class="nav-cta" data-loc="nav">LINEでご予約</a>
 </nav>
 
 <!-- HERO -->
@@ -1219,7 +1346,8 @@
       <span style="color:rgba(255,255,255,0.9);font-size:.95em">ここ<span class="sm">は、</span>あなただけ<span class="sm">の</span>時間<span class="sm">と</span>空間です。</span>
     </p>
     <div class="hero-line" aria-hidden="true"></div>
-    <a href="#reserve" class="btn-reserve">ご予約はこちら</a>
+    <a href="#offer" class="btn-reserve" data-loc="hero">初回特典を見る</a>
+    <p class="cta-micro">LINEから簡単にご予約。日時のご相談だけでも大丈夫です。</p>
   </div>
 </section>
 
@@ -1232,20 +1360,21 @@
 </div>
 
 <!-- OFFER BANNER（初回特典） -->
-<section class="offer-sec" aria-labelledby="offer-heading">
+<section class="offer-sec" id="offer" aria-labelledby="offer-heading">
   <div class="offer-wrap reveal">
     <span class="offer-tag">First Visit</span>
     <h2 class="offer-title" id="offer-heading">
       はじめての方へ。<br>
-      <em>ローズ蒸しテント20分</em> を、特別価格で。
+      <em>ローズ蒸しテント20分</em> を、お試し価格でどうぞ。
     </h2>
     <p class="offer-strike">通常 ¥3,850</p>
     <p class="offer-price">¥2,750<small>（税込）</small></p>
     <p class="offer-note">
-      ※ お一人様1回限り／LINEご予約時に「初回モニター希望」とお伝えください<br>
-      <span style="color:var(--text-lt);font-size:11px;">※ 価格はプレースホルダー。大瀬良さんと最終調整予定。</span>
+      ※ お一人様1回限り／LINEご予約時に「初回特典希望」とお伝えください
     </p>
-    <a href="#reserve" class="btn-reserve">この特典で予約する</a>
+    <p class="offer-trust">女性セラピストがマンツーマン　｜　完全個室・女性専用　｜　カウンセリング込み</p>
+    <a href="https://page.line.me/962yasuq" target="_blank" rel="noopener" class="btn-reserve" data-loc="offer">この特典でLINE予約する</a>
+    <p class="cta-micro on-light">LINEから簡単にご予約。日時のご相談だけでも大丈夫です。</p>
   </div>
 </section>
 
@@ -1297,7 +1426,8 @@
       SERAのトリートメントは、表面だけでなく体の芯から整えます。<br>
       自然治癒力を高め、あなた本来の輝きを取り戻すために。
     </p>
-    <a href="#reserve" class="btn-reserve">まずは予約してみる</a>
+    <a href="https://page.line.me/962yasuq" target="_blank" rel="noopener" class="btn-reserve" data-loc="transform">LINEで予約してみる</a>
+    <p class="cta-micro">LINEから簡単にご予約。日時のご相談だけでも大丈夫です。</p>
   </div>
 </div>
 
@@ -1395,8 +1525,8 @@
         <span class="eyebrow">Relaxation</span>
         <h3 class="menu-card-title">全身リンパドレナージュ<small style="display:block;font-size:.7em;font-weight:300;margin-top:4px;">90分</small></h3>
         <p class="menu-card-desc">
-          リンパの流れを丁寧に促し、老廃物の排出をサポート。
-          心と身体をゆるやかにほぐしながら、内側から整う健やかな状態へ導きます。
+          リンパの流れに沿って、ゆっくりと全身をほぐしていきます。
+          施術後は「体が軽くなった」とおっしゃる方も。ご自身のペースで、深い休息のひとときへ。
         </p>
         <p class="menu-price">¥7,700</p>
       </div>
@@ -1404,21 +1534,28 @@
         <span class="eyebrow">Rose Steam</span>
         <h3 class="menu-card-title">ローズ蒸しテント<small style="display:block;font-size:.7em;font-weight:300;margin-top:4px;">20分〜</small></h3>
         <p class="menu-card-desc">
-          精油100%のローズオイルの蒸気を全身で浴びる、極上のデトックス体験。
-          自然の力で体の内側から温めます。
+          精油100%のローズオイルの蒸気に、全身でつつまれるひととき。
+          じんわり広がる温かさで、ほっと一息つける時間を。
         </p>
         <p class="menu-price">¥3,850<small>〜</small></p>
       </div>
       <div class="menu-card">
-        <div class="menu-badge">Recommend</div>
+        <div class="menu-badge">おすすめ</div>
         <span class="eyebrow">Set Menu</span>
         <h3 class="menu-card-title">ローズ蒸しテント20分<br>＋全身リンパドレナージュ90分</h3>
         <p class="menu-card-desc">
-          リンパドレナージュとローズ蒸しテントを組み合わせた贅沢なフルコース。
-          相乗効果でより深いリラクゼーションへ。
+          リンパドレナージュとローズ蒸しテントを組み合わせた、たっぷり約110分のフルコース。
+          肩の力が抜ける、自分へのご褒美の時間です。
         </p>
         <p class="menu-price">¥11,550</p>
       </div>
+    </div>
+    <p class="reveal" style="text-align:center;margin-top:36px;font-size:14px;color:var(--text-mid);line-height:2;">
+      ※ はじめての方は、まずローズ蒸しテントでSERAの空気を感じてみてください。<br>
+      お身体に合えば、2回目以降は全身リンパ90分で本格的なケアへ。
+    </p>
+    <div class="reveal" style="text-align:center;margin-top:24px;">
+      <a href="https://page.line.me/962yasuq" target="_blank" rel="noopener" class="btn-reserve" data-loc="menu">メニューの相談・予約はLINEで</a>
     </div>
   </div>
 </section>
@@ -1503,8 +1640,9 @@
   </div>
 </section>
 
-<!-- VOICE（お客様の声） -->
-<section class="sec voice-sec" aria-labelledby="voice-heading">
+<!-- VOICE（お客様の声）：実際のお声が揃うまで非表示。プレースホルダーの露出は信頼を逆に損なうため。
+     大瀬良さんから実声(妊活/更年期/冷え・疲労の3件＋掲載許可)を入手後、各 voice-body を差し替えて style="display:none" を外す -->
+<section class="sec voice-sec" aria-labelledby="voice-heading" style="display:none">
   <div class="wrap-wide">
     <div class="sec-head reveal">
       <span class="eyebrow">Voice</span>
@@ -1542,6 +1680,37 @@
   </div>
 </section>
 
+<!-- 予約の流れ -->
+<section class="sec flow-sec" aria-labelledby="flow-heading">
+  <div class="wrap-wide">
+    <div class="sec-head reveal">
+      <span class="eyebrow">How to book</span>
+      <h2 class="sec-title" id="flow-heading">ご予約の流れ</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="flow-grid reveal reveal-d1">
+      <div class="flow-step">
+        <span class="flow-num">01</span>
+        <p class="flow-title">LINEで友だち追加</p>
+        <p class="flow-desc">下のボタンからSERA公式LINEを追加。お電話でも承っております。</p>
+      </div>
+      <div class="flow-step">
+        <span class="flow-num">02</span>
+        <p class="flow-title">ご希望をトークで送信</p>
+        <p class="flow-desc">ご希望の日時・メニュー、気になるお悩みをお送りください。ご相談だけでも大丈夫です。</p>
+      </div>
+      <div class="flow-step">
+        <span class="flow-num">03</span>
+        <p class="flow-title">日時が決まれば予約完了</p>
+        <p class="flow-desc">当日は手ぶらでOK。あなただけの時間をご用意して、心よりお待ちしています。</p>
+      </div>
+    </div>
+    <div class="reveal" style="text-align:center;margin-top:40px;">
+      <a href="https://page.line.me/962yasuq" target="_blank" rel="noopener" class="btn-line" data-loc="flow">LINEで予約する</a>
+    </div>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section class="sec faq-sec" aria-labelledby="faq-heading">
   <div class="wrap">
@@ -1565,11 +1734,13 @@
       </details>
       <details class="faq-item">
         <summary class="faq-q">小さな子どもを連れて行ってもいいですか？</summary>
-        <p class="faq-a">※ プレースホルダー：お子様連れの可否・条件を大瀬良さんと確定後に記載。</p>
+        <!-- 暫定回答：大瀬良さんに子連れ可否・条件（月齢/人数/ベビーカー等）を確認後に確定 -->
+        <p class="faq-a">お子様の年齢やご状況に合わせて、できる限りのご案内をいたします。ご予約の際にお気軽にご相談ください。</p>
       </details>
       <details class="faq-item">
         <summary class="faq-q">キャンセルや変更はできますか？</summary>
-        <p class="faq-a">※ プレースホルダー：キャンセルポリシー（前日まで／当日連絡など）を大瀬良さんと確定後に記載。</p>
+        <!-- 暫定回答：大瀬良さんにキャンセルポリシー（連絡期限/当日キャンセル料の有無）を確認後に確定 -->
+        <p class="faq-a">ご予約の変更・キャンセルは承っております。ご予定が変わった際は、お早めにLINEまたはお電話でご連絡ください。詳しいご案内は予約確定時にお伝えいたします。</p>
       </details>
     </div>
   </div>
@@ -1591,6 +1762,7 @@
           福岡県糟屋郡宇美町<br>
           貴船1丁目1-7 2F
         </address>
+        <iframe title="SERAの地図" src="https://www.google.com/maps?q=福岡県糟屋郡宇美町貴船1丁目1-7&output=embed" width="100%" height="200" style="border:0;border-radius:8px;margin-top:14px;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <div class="info-block">
         <p class="info-label">Hours</p>
@@ -1605,9 +1777,13 @@
         <p class="info-body">
           <a href="tel:09019229911">090-1922-9911</a><br>
           <a href="mailto:seraayu7096@gmail.com" style="font-size:11px">seraayu7096@gmail.com</a><br>
-          LINE・各SNSでも受付中
+          <a href="https://page.line.me/962yasuq" target="_blank" rel="noopener" style="color:var(--line-green);border-bottom:1px solid var(--line-green);">LINEで予約・お問い合わせ</a>
         </p>
       </div>
+    </div>
+    <div class="cta-btns reveal" style="margin-top:48px;">
+      <a href="https://page.line.me/962yasuq" target="_blank" rel="noopener" class="btn-line" data-loc="info">LINEで予約する</a>
+      <a href="tel:09019229911" class="btn-tel-light" data-loc="info">お電話で予約　090-1922-9911</a>
     </div>
   </div>
 </section>
@@ -1628,17 +1804,27 @@
     <p class="cta-sub">
       完全予約制・女性専用プライベートサロン<br>
       宇美駅から徒歩5分　／　10:00〜20:00<br>
-      <span style="color:rgba(255,255,255,0.6);font-size:11px;margin-top:8px;display:inline-block;">※ 当日予約は埋まりやすくなっております。お早めにどうぞ。</span>
+      <span style="color:var(--gold-light);font-size:13px;margin-top:8px;display:inline-block;letter-spacing:.5px;">※ 完全予約制のため、ご予約はお早めにどうぞ。</span>
     </p>
     <div class="cta-btns">
-      <a href="https://page.line.me/962yasuq" class="btn-line" aria-label="LINEで予約する">
+      <a href="https://page.line.me/962yasuq" target="_blank" rel="noopener" class="btn-line" data-loc="final" aria-label="LINEで予約する">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
         LINEで予約する
       </a>
-      <p style="font-size:12px;color:rgba(255,255,255,0.45);letter-spacing:1px;">お電話：<a href="tel:09019229911" style="color:rgba(255,255,255,0.55);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">090-1922-9911</a></p>
+      <a href="tel:09019229911" class="btn-tel-outline" data-loc="final" aria-label="電話で予約する">お電話で予約　090-1922-9911</a>
     </div>
+    <p class="cta-micro" style="margin-top:20px;">LINEから簡単にご予約。日時のご相談だけでも大丈夫です。</p>
   </div>
 </section>
+
+<!-- STICKY CTA（モバイル固定予約バー：JSでヒーロー通過後に表示／最終CTA表示中は退避） -->
+<div class="sticky-cta" id="stickyCta" aria-label="予約バー">
+  <a href="https://page.line.me/962yasuq" target="_blank" rel="noopener" class="sticky-line" data-loc="sticky">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+    LINEで予約
+  </a>
+  <a href="tel:09019229911" class="sticky-tel" data-loc="sticky">電話</a>
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -1648,6 +1834,9 @@
 </footer>
 
 <script>
+  // ─ JSが動く環境でのみアニメを有効化（未発火でもコンテンツは表示される保険）
+  document.body.classList.add('js-anim');
+
   // ─ Scroll reveal
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
@@ -1665,15 +1854,42 @@
     nav.classList.toggle('scrolled', window.scrollY > 60);
   }, { passive: true });
 
+  // ─ Sticky CTA bar：ヒーローを通過したら表示。最終CTAが見えている間は退避（二重表示回避）
+  const stickyCta = document.getElementById('stickyCta');
+  const finalCta = document.querySelector('.cta-sec');
+  let finalCtaVisible = false;
+  function updateStickyCta() {
+    if (!stickyCta) return;
+    const pastHero = window.scrollY > window.innerHeight * 0.9;
+    stickyCta.classList.toggle('show', pastHero && !finalCtaVisible);
+  }
+  if (finalCta) {
+    new IntersectionObserver((entries) => {
+      finalCtaVisible = entries[0].isIntersecting;
+      updateStickyCta();
+    }, { threshold: 0.05 }).observe(finalCta);
+  }
+  window.addEventListener('scroll', updateStickyCta, { passive: true });
+  updateStickyCta();
+
   // ─ GA4 Custom Events
 
-  // 1. CTA click tracking
-  document.querySelectorAll('.btn-reserve, .btn-line, .btn-tel, a[href^="tel:"]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      gtag('event', 'cta_click', {
-        cta_text: btn.textContent.trim(),
-        cta_url: btn.getAttribute('href')
-      });
+  // 1. CTA click tracking（導線種別で分離：LINE予約意向 / 電話 / 内部スクロール）
+  //    ※ line_cta_click・tel_click は「予約成立」ではなく予約意向(マイクロCV)。
+  //      実予約数は別途記録し、クリック→実予約の転換率で評価すること（広告の最適化目標にクリックを安易に据えない）。
+  document.querySelectorAll('a[href^="https://page.line.me"]').forEach(a => {
+    a.addEventListener('click', () => {
+      gtag('event', 'line_cta_click', { location: a.dataset.loc || 'unknown' });
+    });
+  });
+  document.querySelectorAll('a[href^="tel:"]').forEach(a => {
+    a.addEventListener('click', () => {
+      gtag('event', 'tel_click', { location: a.dataset.loc || 'unknown' });
+    });
+  });
+  document.querySelectorAll('a[href^="#"][data-loc]').forEach(a => {
+    a.addEventListener('click', () => {
+      gtag('event', 'reserve_intent_click', { location: a.dataset.loc || 'unknown', anchor: a.getAttribute('href') });
     });
   });
 
