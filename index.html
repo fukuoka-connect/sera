@@ -14,9 +14,9 @@
   </script>
   <meta name="google-site-verification" content="la_6IGFOXHrX7_Azu1HLkg10JC-jciXeFN9VLZZ9hBg" />
 
-  <!-- ═══ SEO BASIC ═══ -->
+  <!-- ═══ SEO ═══ -->
   <title>SERA｜宇美の女性専用リラクゼーションサロン｜ローズ蒸しテント・仙骨トリートメント</title>
-  <meta name="description" content="宇美駅から徒歩5分。女性専用・完全予約制のプライベートリラクゼーションサロンSERA。精油100%ローズ蒸しテント・仙骨特化トリートメントで、妊活・更年期・冷え・アレルギーのお悩みを根本からケア。福岡県糟屋郡宇美町 貴船1丁目1-7 2F。">
+  <meta name="description" content="宇美駅から徒歩5分。女性専用・完全予約制のプライベートリラクゼーションサロンSERA。100%オーガニックローズ蒸しテント・仙骨特化トリートメントで、妊活・更年期・冷え・アレルギーのお悩みを根本からケア。福岡県糟屋郡宇美町 貴船1丁目1-7 2F。">
   <meta name="keywords" content="宇美 サロン 女性専用, 宇美 リラクゼーション, 糟屋郡 サロン, ローズ蒸しテント 福岡, 仙骨 トリートメント 宇美, 妊活 サロン 福岡, 女性専用 完全予約制 宇美, SERA 宇美">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://fukuoka-connect.github.io/sera/">
@@ -25,14 +25,14 @@
   <!-- ═══ OGP ═══ -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="SERA｜宇美の女性専用リラクゼーションサロン">
-  <meta property="og:description" content="宇美駅から徒歩5分。精油100%ローズ蒸しテント・仙骨特化トリートメント。完全予約制の女性専用プライベートサロン。">
+  <meta property="og:description" content="宇美駅から徒歩5分。100%オーガニックローズ蒸しテント・仙骨特化トリートメント。完全予約制の女性専用プライベートサロン。">
   <meta property="og:url" content="https://fukuoka-connect.github.io/sera/">
   <meta property="og:site_name" content="SERA Relaxation Salon">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:image" content="https://fukuoka-connect.github.io/sera/images/ogp.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="SERA｜宇美の女性専用リラクゼーションサロン">
-  <meta name="twitter:description" content="宇美駅から徒歩5分。精油100%ローズ蒸しテント・仙骨特化トリートメント。完全予約制の女性専用サロン。">
+  <meta name="twitter:description" content="宇美駅から徒歩5分。100%オーガニックローズ蒸しテント・仙骨特化トリートメント。完全予約制の女性専用サロン。">
   <meta name="twitter:image" content="https://fukuoka-connect.github.io/sera/images/ogp.png">
 
   <!-- ═══ 構造化データ ═══ -->
@@ -41,12 +41,12 @@
     "@context": "https://schema.org",
     "@type": "HealthAndBeautyBusiness",
     "name": "SERA Relaxation Salon",
-    "description": "宇美の女性専用プライベートリラクゼーションサロン。精油100%ローズ蒸しテント・仙骨特化トリートメント。妊活・更年期・冷え・アレルギー対応。完全予約制。",
+    "description": "宇美の女性専用プライベートリラクゼーションサロン。100%オーガニックローズ蒸しテント・仙骨特化トリートメント。妊活・更年期・冷え・アレルギー対応。完全予約制。",
     "url": "https://fukuoka-connect.github.io/sera/",
     "image": "https://fukuoka-connect.github.io/sera/images/ogp.png",
-    "telephone": "+81-80-5272-5013",
+    "telephone": "+81-90-1922-9911",
     "email": "seraayu7096@gmail.com",
-    "priceRange": "¥2,050〜¥20,500",
+    "priceRange": "¥2,750〜¥11,550",
     "currenciesAccepted": "JPY",
     "paymentAccepted": "Cash",
     "address": {
@@ -137,12 +137,15 @@
     .divider--left { margin: 0; }
 
     /* ═══ REVEAL ANIMATION ═══ */
-    .reveal {
+    /* 既定は表示（JS/IntersectionObserver未発火でもコンテンツが隠れない）。
+       JS有効時のみ .js-anim を body に付与してフェードイン演出を有効化する */
+    .reveal { opacity: 1; transform: none; }
+    .js-anim .reveal {
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.9s ease, transform 0.9s ease;
     }
-    .reveal.in { opacity: 1; transform: translateY(0); }
+    .js-anim .reveal.in { opacity: 1; transform: translateY(0); }
     .reveal-d1 { transition-delay: 0.1s; }
     .reveal-d2 { transition-delay: 0.2s; }
     .reveal-d3 { transition-delay: 0.3s; }
@@ -178,28 +181,31 @@
     .nav-cta {
       font-size: 10px;
       letter-spacing: 3px;
-      color: var(--white);
-      border: 1px solid rgba(255,255,255,0.5);
-      padding: 8px 20px;
+      color: #fff;
+      background: var(--line-green);
+      border: 1px solid var(--line-green);
+      padding: 10px 20px;
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
       text-decoration: none;
       transition: all 0.48s cubic-bezier(.25,.46,.45,.94);
       font-family: 'Noto Serif JP', serif;
     }
     .nav.scrolled .nav-cta {
-      color: var(--text);
-      border-color: var(--salmon-lt);
+      color: #fff;
+      background: var(--line-green);
+      border-color: var(--line-green);
     }
     .nav-cta:hover {
-      background: var(--salmon);
-      border-color: var(--salmon);
-      color: var(--white);
+      opacity: 0.9;
       transition-duration: 0.22s;
     }
 
     /* ═══ HERO ═══ */
     .hero {
-      min-height: 100svh;
       min-height: 100vh;
+      min-height: 100svh;
       background: linear-gradient(150deg, rgba(58,31,24,0.82) 0%, rgba(92,46,34,0.78) 50%, rgba(74,34,24,0.85) 100%),
                   url('images/hero-bg.png') center/cover no-repeat;
       display: flex;
@@ -817,7 +823,7 @@
       .sec { padding: 64px 20px; }
       .sec-sm { padding: 48px 20px; }
       .nav { padding: 14px 20px; }
-      .nav-cta { padding: 12px 20px; font-size: 9px; }
+      .nav-cta { padding: 11px 18px; font-size: 11px; }
       .hero { padding: 90px 20px 56px; }
       .hero-logo { letter-spacing: 12px; }
       .hero-catch { font-size: 14px; line-height: 2.3; }
@@ -826,15 +832,541 @@
       .concept-quote { font-size: 14px; }
       .cta-btns { flex-direction: column; align-items: center; }
       .btn-line, .btn-tel { width: 100%; max-width: 280px; text-align: center; justify-content: center; }
+      .offer-sec { padding: 48px 20px; }
+      .therapist-layout { gap: 24px; }
+      .therapist-photo { aspect-ratio: 4/5; }
+      .voice-card { padding: 32px 24px 26px; }
+      .faq-q { padding: 18px 22px; font-size: 14px; }
+      .faq-a { padding: 0 22px 20px 22px; font-size: 13px; }
+    }
+
+    /* ═══ OFFER BANNER（初回特典） ═══ */
+    .offer-sec {
+      background: linear-gradient(180deg, var(--cream) 0%, var(--cream-mid) 100%);
+      padding: 56px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .offer-sec::before {
+      content: '';
+      position: absolute;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      border: 1px solid rgba(212,115,90,0.15);
+      top: -120px; right: -80px;
+      pointer-events: none;
+    }
+    .offer-wrap {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .offer-tag {
+      display: inline-block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      letter-spacing: 5px;
+      color: var(--white);
+      background: var(--salmon);
+      padding: 6px 18px;
+      margin-bottom: 20px;
+    }
+    .offer-title {
+      font-size: clamp(18px, 3.6vw, 26px);
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.9;
+      margin-bottom: 14px;
+    }
+    .offer-title em { font-style: normal; color: var(--salmon); font-weight: 400; }
+    .offer-strike {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      color: var(--text-lt);
+      text-decoration: line-through;
+      margin-bottom: 6px;
+      letter-spacing: 1px;
+    }
+    .offer-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(40px, 8vw, 60px);
+      font-weight: 300;
+      color: var(--terra);
+      line-height: 1;
+      margin-bottom: 18px;
+    }
+    .offer-price small { font-size: 15px; color: var(--text-mid); margin-left: 4px; font-family: 'Noto Serif JP', serif; }
+    .offer-note {
+      font-size: 12px;
+      color: var(--text-mid);
+      letter-spacing: 1px;
+      margin-bottom: 28px;
+      line-height: 2;
+    }
+
+    /* ═══ THERAPIST PROFILE ═══ */
+    .therapist-sec { background: var(--white); }
+    .therapist-layout {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    @media (max-width: 640px) {
+      .therapist-layout { grid-template-columns: 1fr; gap: 36px; }
+    }
+    .therapist-photo {
+      aspect-ratio: 3/4;
+      background: linear-gradient(160deg, var(--cream) 0%, var(--salmon-pale) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .therapist-photo::after {
+      content: '';
+      position: absolute;
+      inset: 12px;
+      border: 1px solid rgba(255,255,255,0.5);
+      pointer-events: none;
+    }
+    .therapist-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .therapist-photo-placeholder {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: var(--gold);
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 2.2;
+    }
+    .therapist-text .eyebrow { margin-bottom: 14px; }
+    .therapist-text .sec-title { text-align: left; }
+    .therapist-text .divider { margin: 0 0 24px; }
+    .therapist-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--text);
+      letter-spacing: 4px;
+      line-height: 1;
+      margin: 4px 0 0;
+    }
+    .therapist-name small {
+      display: block;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 13px;
+      color: var(--text-mid);
+      letter-spacing: 2px;
+      margin-top: 10px;
+      font-weight: 300;
+    }
+    .therapist-body {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 2.4;
+      margin: 22px 0 0;
+    }
+    .therapist-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(15px, 2.6vw, 19px);
+      font-style: italic;
+      color: var(--salmon);
+      line-height: 1.9;
+      padding-left: 20px;
+      border-left: 2px solid var(--salmon-pale);
+      margin-top: 24px;
+    }
+    .therapist-creds {
+      margin: 26px 0 0;
+      padding: 20px 22px;
+      background: var(--cream);
+      border: 1px solid var(--salmon-pale);
+      border-radius: 4px;
+    }
+    .therapist-creds h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: var(--text);
+      margin: 0 0 14px;
+    }
+    .therapist-creds ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .therapist-creds li {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.7;
+      padding-left: 18px;
+      position: relative;
+      margin-bottom: 12px;
+    }
+    .therapist-creds li:last-child { margin-bottom: 0; }
+    .therapist-creds li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 9px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--salmon);
+    }
+    .therapist-creds li small {
+      display: block;
+      font-size: 12px;
+      color: var(--text-light, #999);
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+    .therapist-creds .creds-org {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--salmon-pale);
+      font-size: 12px;
+      color: var(--text-mid);
+      line-height: 1.8;
+    }
+
+    /* ═══ VOICE（お客様の声） ═══ */
+    .voice-sec { background: var(--ivory); }
+    .voice-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 720px) {
+      .voice-grid { grid-template-columns: 1fr; gap: 16px; }
+    }
+    .voice-card {
+      background: var(--white);
+      padding: 40px 28px 28px;
+      border: 1px solid var(--cream-mid);
+      position: relative;
+      transition: transform 0.48s cubic-bezier(.25,.46,.45,.94), box-shadow 0.48s cubic-bezier(.25,.46,.45,.94);
+    }
+    .voice-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px var(--shadow);
+      transition-duration: 0.22s;
+    }
+    .voice-card::before { content: none; }
+    .voice-tag {
+      display: inline-block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--gold);
+      border: 1px solid var(--gold-pale);
+      padding: 4px 12px;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
+    }
+    .voice-body {
+      font-size: 15px;
+      color: var(--text);
+      line-height: 2.0;
+      margin-bottom: 22px;
+      position: relative;
+      z-index: 1;
+    }
+    .voice-author {
+      font-size: 12px;
+      color: var(--text-mid);
+      letter-spacing: 1.5px;
+      border-top: 1px solid var(--cream-mid);
+      padding-top: 14px;
+    }
+    .voice-author strong {
+      color: var(--salmon);
+      font-weight: 400;
+    }
+    /* 声：手書きカード(証拠サムネ)＋転写の二層 */
+    .voice-evidence {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
+    }
+    .voice-evidence .voice-tag { margin-bottom: 0; }
+    .voice-thumb {
+      width: 84px;
+      height: 84px;
+      flex: 0 0 84px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid var(--cream-mid);
+      box-shadow: 0 6px 18px var(--shadow);
+    }
+    .voice-card.has-photo .voice-thumb { transform: rotate(-2.5deg); }
+    .voice-quote {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--terra);
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 1;
+    }
+    .voice-note {
+      font-size: 12px;
+      color: var(--text-lt);
+      letter-spacing: 0.5px;
+      text-align: center;
+      line-height: 1.8;
+      margin-top: 30px;
+    }
+    .voice-cta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      margin-top: 24px;
+    }
+    @media (max-width: 720px) {
+      .voice-card.has-photo .voice-thumb { transform: rotate(-1deg); }
+    }
+
+    /* ═══ FAQ ═══ */
+    .faq-sec { background: var(--cream); }
+    .faq-list { display: flex; flex-direction: column; gap: 12px; }
+    .faq-item {
+      background: var(--white);
+      border: 1px solid var(--cream-mid);
+      transition: border-color 0.48s cubic-bezier(.25,.46,.45,.94);
+    }
+    .faq-item[open] { border-color: var(--salmon-pale); }
+    .faq-q {
+      padding: 22px 28px;
+      cursor: pointer;
+      font-size: 15px;
+      color: var(--text);
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      line-height: 1.7;
+      transition: color 0.3s;
+    }
+    .faq-q::-webkit-details-marker { display: none; }
+    .faq-q::before {
+      content: 'Q';
+      flex-shrink: 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      color: var(--salmon);
+      font-style: italic;
+      line-height: 1;
+    }
+    .faq-q::after {
+      content: '+';
+      flex-shrink: 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      color: var(--salmon-lt);
+      transition: transform 0.3s;
+      margin-left: auto;
+    }
+    .faq-item[open] .faq-q::after { content: '−'; }
+    .faq-q:hover { color: var(--salmon); }
+    .faq-a {
+      padding: 0 28px 24px 28px;
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 2.2;
+      display: flex;
+      gap: 14px;
+    }
+    .faq-a::before {
+      content: 'A';
+      flex-shrink: 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      color: var(--gold);
+      font-style: italic;
+      line-height: 1;
+    }
+
+    /* ═══ CTA MICROCOPY（予約直前の不安解消） ═══ */
+    .cta-micro {
+      margin-top: 14px;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.62);
+    }
+    .cta-micro.on-light { color: var(--text-mid); }
+
+    /* ═══ OFFER 安心ストリップ ═══ */
+    .offer-trust {
+      font-size: 12px;
+      color: var(--text-mid);
+      letter-spacing: 0.5px;
+      line-height: 2;
+      margin-bottom: 22px;
+    }
+
+    /* ═══ 電話ボタン（LINEに従属する副導線） ═══ */
+    .btn-tel-outline, .btn-tel-light {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 52px;
+      padding: 14px 32px;
+      border-radius: 40px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-decoration: none;
+      font-family: 'Noto Serif JP', serif;
+      transition: all 0.3s;
+    }
+    .btn-tel-outline {
+      border: 1px solid rgba(255,255,255,0.4);
+      color: rgba(255,255,255,0.85);
+    }
+    .btn-tel-outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.7); }
+    .btn-tel-light {
+      border: 1px solid var(--salmon-lt);
+      color: var(--terra);
+    }
+    .btn-tel-light:hover { background: var(--cream); }
+
+    /* ═══ STICKY CTA BAR（モバイル：ヒーロー通過後にフェードイン／最終CTAで退避） ═══ */
+    .sticky-cta {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      z-index: 150;
+      display: none;
+      gap: 8px;
+      padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+      background: rgba(253,249,247,0.96);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 -2px 14px rgba(212,115,90,0.16);
+      opacity: 0;
+      transform: translateY(100%);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .sticky-cta.show { opacity: 1; transform: translateY(0); }
+    .sticky-line, .sticky-tel {
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 40px;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-decoration: none;
+      font-family: 'Noto Serif JP', serif;
+      color: #fff;
+    }
+    .sticky-line { flex: 2; background: var(--line-green); }
+    .sticky-tel { flex: 1; background: var(--terra); }
+    @media (max-width: 768px) { .sticky-cta { display: flex; } }
+
+    /* ═══ ご予約の流れ ═══ */
+    .flow-sec { background: var(--white); }
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 640px) { .flow-grid { grid-template-columns: 1fr; gap: 12px; } }
+    .flow-step {
+      background: var(--ivory);
+      border: 1px solid var(--cream-mid);
+      padding: 32px 26px;
+      position: relative;
+    }
+    .flow-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 34px;
+      font-weight: 300;
+      color: var(--salmon-pale);
+      line-height: 1;
+      display: block;
+      margin-bottom: 12px;
+    }
+    .flow-title {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .flow-desc {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 2;
+    }
+
+    /* ═══ MOTION配慮（酔い・低スペック端末対策） ═══ */
+    @media (prefers-reduced-motion: reduce) {
+      .petal { display: none; }
+      .reveal, .js-anim .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+      .hero-inner { animation: none !important; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ═══ PREVIEW BANNER（本番ではない目印） ═══ */
+    .preview-banner {
+      position: relative;
+      z-index: 200;
+      background: linear-gradient(90deg, #3A1F18 0%, #5C2E22 100%);
+      color: #FAF3F0;
+      padding: 12px 16px;
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 2px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-family: 'Noto Serif JP', serif;
+      border-bottom: 1px solid rgba(212,115,90,0.3);
+    }
+    .preview-banner-tag {
+      background: var(--salmon);
+      color: var(--white);
+      padding: 4px 10px;
+      letter-spacing: 4px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+    }
+    .preview-banner-text { color: rgba(255,255,255,0.88); }
+    .preview-banner-date { color: rgba(255,255,255,0.45); font-size: 10px; letter-spacing: 2px; }
+    @media (max-width: 480px) {
+      .preview-banner { font-size: 10px; gap: 8px; padding: 10px 12px; }
+      .preview-banner-date { display: none; }
     }
   </style>
 </head>
 <body>
 
+<!-- PREVIEW BANNER -->
+<div class="preview-banner" role="alert" aria-label="プレビュー表示">
+  <span class="preview-banner-tag">PREVIEW</span>
+  <span class="preview-banner-text">これは改善案v2（予約導線・CV改善版）のプレビューです（本番ではありません）</span>
+  <span class="preview-banner-date">2026-06-10</span>
+</div>
+
 <!-- NAV -->
 <nav class="nav" id="nav" role="navigation" aria-label="メインナビゲーション">
   <a href="#" class="nav-logo" aria-label="SERA トップへ"><img src="images/sera-logo.png" alt="SERA" style="height:32px;width:auto;"></a>
-  <a href="#reserve" class="nav-cta">ご予約</a>
+  <a href="https://page.line.me/962yasuq" target="_blank" rel="noopener" class="nav-cta" data-loc="nav">LINEでご予約</a>
 </nav>
 
 <!-- HERO -->
@@ -855,7 +1387,8 @@
       <span style="color:rgba(255,255,255,0.9);font-size:.95em">ここ<span class="sm">は、</span>あなただけ<span class="sm">の</span>時間<span class="sm">と</span>空間です。</span>
     </p>
     <div class="hero-line" aria-hidden="true"></div>
-    <a href="#reserve" class="btn-reserve">ご予約はこちら</a>
+    <a href="#offer" class="btn-reserve" data-loc="hero">初回特典を見る</a>
+    <p class="cta-micro">LINEから簡単にご予約。日時のご相談だけでも大丈夫です。</p>
   </div>
 </section>
 
@@ -866,6 +1399,25 @@
   <div class="access-item"><span class="access-dot"></span>女性専用</div>
   <div class="access-item"><span class="access-dot"></span>10:00〜20:00</div>
 </div>
+
+<!-- OFFER BANNER（初回特典） -->
+<section class="offer-sec" id="offer" aria-labelledby="offer-heading">
+  <div class="offer-wrap reveal">
+    <span class="offer-tag">First Visit</span>
+    <h2 class="offer-title" id="offer-heading">
+      はじめての方へ。<br>
+      <em>ローズ蒸しテント20分</em> を、お試し価格でどうぞ。
+    </h2>
+    <p class="offer-strike">通常 ¥3,850</p>
+    <p class="offer-price">¥2,750<small>（税込）</small></p>
+    <p class="offer-note">
+      ※ お一人様1回限り／LINEご予約時に「初回特典希望」とお伝えください
+    </p>
+    <p class="offer-trust">女性セラピストがマンツーマン　｜　完全個室・女性専用　｜　カウンセリング込み</p>
+    <a href="https://page.line.me/962yasuq" target="_blank" rel="noopener" class="btn-reserve" data-loc="offer">この特典でLINE予約する</a>
+    <p class="cta-micro on-light">LINEから簡単にご予約。日時のご相談だけでも大丈夫です。</p>
+  </div>
+</section>
 
 <!-- PAIN POINTS -->
 <section class="sec pain-sec" aria-labelledby="pain-heading">
@@ -915,7 +1467,8 @@
       SERAのトリートメントは、表面だけでなく体の芯から整えます。<br>
       自然治癒力を高め、あなた本来の輝きを取り戻すために。
     </p>
-    <a href="#reserve" class="btn-reserve">まずは予約してみる</a>
+    <a href="https://page.line.me/962yasuq" target="_blank" rel="noopener" class="btn-reserve" data-loc="transform">LINEで予約してみる</a>
+    <p class="cta-micro">LINEから簡単にご予約。日時のご相談だけでも大丈夫です。</p>
   </div>
 </div>
 
@@ -951,6 +1504,50 @@
   </div>
 </section>
 
+<!-- THERAPIST PROFILE -->
+<section class="sec therapist-sec" aria-labelledby="therapist-heading">
+  <div class="wrap-wide">
+    <div class="therapist-layout reveal">
+      <div class="therapist-photo">
+        <img src="images/sera-therapist.jpg" alt="SERA代表・施術者 大瀬良歩美" width="600" height="800">
+      </div>
+      <div class="therapist-text">
+        <span class="eyebrow">Therapist</span>
+        <h2 class="sec-title hdg" id="therapist-heading">
+          施術者<span class="sm">のご紹介</span>
+        </h2>
+        <div class="divider divider--left"></div>
+        <p class="therapist-name">OSERA AYUMI<small>大瀬良 歩美 ／ SERA代表</small></p>
+        <p class="therapist-body">
+          「人の役に立ちたい」「誰かを笑顔にしたい」という気持ちから、リラクゼーションサロンをオープンしました。<br>
+          毎日頑張っている皆さまが、ほっと心を休められる癒しの場所になれるよう、一人ひとりに寄り添いながらお手伝いさせていただきます。
+        </p>
+        <blockquote class="therapist-quote">
+          「どうぞお気軽にお越しください。<br>
+          あなたのための時間を、心を込めてお預かりします。」
+        </blockquote>
+        <div class="therapist-creds">
+          <h3>保有資格・認定</h3>
+          <ul>
+            <li>リンパドレナージュセラピスト認定資格取得
+              <small>認定番号：A-051 ／ 認定証発行日：2024年3月1日</small>
+            </li>
+            <li>ローズ蒸しテント加盟店認定
+              <small>RELAXATION SALON SERA ／ 加盟店番号：No.124</small>
+            </li>
+            <li>ジュエリー耳つぼセラピスト講座修了
+              <small>修了日：2025年2月12日</small>
+            </li>
+          </ul>
+          <div class="creds-org">
+            認定団体：Re All Academy（リンパドレナージュ）／ Organic Rose Association（ローズ蒸しテント加盟店）／ 日本トータルビューティセラピスト協会（ジュエリー耳つぼ）
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- MENU -->
 <section class="sec menu-sec" id="menu" aria-labelledby="menu-heading">
   <div class="wrap-wide">
@@ -969,30 +1566,37 @@
         <span class="eyebrow">Relaxation</span>
         <h3 class="menu-card-title">全身リンパドレナージュ<small style="display:block;font-size:.7em;font-weight:300;margin-top:4px;">90分</small></h3>
         <p class="menu-card-desc">
-          リンパの流れを丁寧に促し、老廃物の排出をサポート。
-          心と身体をゆるやかにほぐしながら、内側から整う健やかな状態へ導きます。
+          リンパの流れに沿って、ゆっくりと全身をほぐしていきます。
+          施術後は「体が軽くなった」とおっしゃる方も。ご自身のペースで、深い休息のひとときへ。
         </p>
         <p class="menu-price">¥7,700</p>
       </div>
       <div class="menu-card">
+        <div class="menu-badge">おすすめ</div>
         <span class="eyebrow">Rose Steam</span>
         <h3 class="menu-card-title">ローズ蒸しテント<small style="display:block;font-size:.7em;font-weight:300;margin-top:4px;">20分〜</small></h3>
         <p class="menu-card-desc">
-          精油100%のローズオイルの蒸気を全身で浴びる、極上のデトックス体験。
-          自然の力で体の内側から温めます。
+          100%オーガニックのローズオイルの蒸気に、全身でつつまれるひととき。合成保存料・添加物一切不使用。100%が美容成分のプレミアムオイル
+          じんわり広がる温かさで、ほっと一息つける時間を。
         </p>
         <p class="menu-price">¥3,850<small>〜</small></p>
       </div>
       <div class="menu-card">
-        <div class="menu-badge">Recommend</div>
         <span class="eyebrow">Set Menu</span>
         <h3 class="menu-card-title">ローズ蒸しテント20分<br>＋全身リンパドレナージュ90分</h3>
         <p class="menu-card-desc">
-          リンパドレナージュとローズ蒸しテントを組み合わせた贅沢なフルコース。
-          相乗効果でより深いリラクゼーションへ。
+          リンパドレナージュとローズ蒸しテントを組み合わせた、たっぷり約110分のフルコース。
+          肩の力が抜ける、自分へのご褒美の時間です。
         </p>
         <p class="menu-price">¥11,550</p>
       </div>
+    </div>
+    <p class="reveal" style="text-align:center;margin-top:36px;font-size:14px;color:var(--text-mid);line-height:2;">
+      ※ はじめての方は、まずローズ蒸しテントでSERAの空気を感じてみてください。<br>
+      お身体に合えば、2回目以降は全身リンパ90分で本格的なケアへ。
+    </p>
+    <div class="reveal" style="text-align:center;margin-top:24px;">
+      <a href="https://page.line.me/962yasuq" target="_blank" rel="noopener" class="btn-reserve" data-loc="menu">メニューの相談・予約はLINEで</a>
     </div>
   </div>
 </section>
@@ -1018,8 +1622,8 @@
       </div>
       <div class="rose-card">
         <span class="rose-icon">💧</span>
-        <p class="rose-title">精油100%使用</p>
-        <p class="rose-desc">ローズオイルは精油100%のものだけを使用。本物の香りと効果をお届けします</p>
+        <p class="rose-title">100%オーガニック原料使用。精油と植物油だけで作った贅沢な美容オイル</p>
+        <p class="rose-desc">合成保存料・添加物一切不使用。100%が美容成分のプレミアムオイル<br>本物の香りと効果をお届けします</p>
       </div>
       <div class="rose-card">
         <span class="rose-icon">🌿</span>
@@ -1073,6 +1677,121 @@
   </div>
 </section>
 
+<!-- VOICE（お客様の声）：証拠サムネ型。読むのは法令安全に整えた転写、見せるのは本物の手書きカード(証拠)。
+     ・手書きカード写真は IMG_2315 の1枚のみ掲載可(法令審査 safe / usableAsImage=true)。残り3枚とLINEコラージュ2枚は薬機法/景表法で画像掲載不可。
+     ・転写は全件 主観・体感に寄せた安全文面(効果断定・即効性・体重/生理/便通/体質改善/商品効能・フェイスライン変化は不使用)。
+     ・本番(index.html)昇格は大瀬良さんの掲載許可取得後。著者属性(年代/地名)とメニュータグは要確認の仮値。 -->
+<section class="sec voice-sec" aria-labelledby="voice-heading">
+  <div class="wrap-wide">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Voice</span>
+      <h2 class="sec-title" id="voice-heading">
+        通<span class="sm">っていただいている</span>方<span class="sm">の声</span>
+      </h2>
+      <div class="divider"></div>
+    </div>
+    <div class="voice-grid reveal reveal-d1">
+      <div class="voice-card has-photo">
+        <div class="voice-evidence">
+          <img class="voice-thumb" src="images/voice/voice-card-01.jpg" alt="お客様直筆のお礼カード" loading="lazy" width="84" height="84">
+          <span class="voice-tag">精油ローズ蒸し</span>
+        </div>
+        <p class="voice-quote">「身体も心も軽くなった気がして」</p>
+        <p class="voice-body">
+          いつも、いやしの時間をありがとうございます。帰りには身体も心も軽くなった気がして、リラックスして帰っています。これからも、よろしくお願いします。
+        </p>
+        <p class="voice-author"><strong>M.K 様</strong> ／ 30代・宇美町在住</p>
+      </div>
+      <div class="voice-card">
+        <span class="voice-tag">全身リンパドレナージュ</span>
+        <p class="voice-quote">「気分よく過ごせています」</p>
+        <p class="voice-body">
+          こちらのサロンに通うと、施術後は身体も心もほぐれてリラックスでき、気分よく過ごせています。いつもありがとうございます。
+        </p>
+        <p class="voice-author"><strong>A.T 様</strong> ／ 40代・粕屋町在住</p>
+      </div>
+      <div class="voice-card">
+        <span class="voice-tag">仙骨ケア</span>
+        <p class="voice-quote">「気持ちがすっと軽くなる感じがして」</p>
+        <p class="voice-body">
+          ストレスが多かったのですが、こちらに通うようになってから、気持ちがすっと軽くなる感じがして、リラックスできています。いつもありがとうございます。
+        </p>
+        <p class="voice-author"><strong>Y.S 様</strong> ／ 50代・福岡市在住</p>
+      </div>
+    </div>
+    <p class="voice-note">※ 個人の感想であり、効果・効能を保証するものではありません。</p>
+    <div class="voice-cta">
+      <a href="https://page.line.me/962yasuq" target="_blank" rel="noopener" class="btn-line" data-loc="voice" aria-label="LINEで予約する">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+        LINEで予約する
+      </a>
+      <a href="tel:09019229911" class="btn-tel-light" data-loc="voice" aria-label="電話で予約する">お電話で予約　090-1922-9911</a>
+    </div>
+  </div>
+</section>
+
+<!-- 予約の流れ -->
+<section class="sec flow-sec" aria-labelledby="flow-heading">
+  <div class="wrap-wide">
+    <div class="sec-head reveal">
+      <span class="eyebrow">How to book</span>
+      <h2 class="sec-title" id="flow-heading">ご予約の流れ</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="flow-grid reveal reveal-d1">
+      <div class="flow-step">
+        <span class="flow-num">01</span>
+        <p class="flow-title">LINEで友だち追加</p>
+        <p class="flow-desc">下のボタンからSERA公式LINEを追加。お電話でも承っております。</p>
+      </div>
+      <div class="flow-step">
+        <span class="flow-num">02</span>
+        <p class="flow-title">ご希望をトークで送信</p>
+        <p class="flow-desc">ご希望の日時・メニュー、気になるお悩みをお送りください。ご相談だけでも大丈夫です。</p>
+      </div>
+      <div class="flow-step">
+        <span class="flow-num">03</span>
+        <p class="flow-title">日時が決まれば予約完了</p>
+        <p class="flow-desc">当日は手ぶらでOK。あなただけの時間をご用意して、心よりお待ちしています。</p>
+      </div>
+    </div>
+    <div class="reveal" style="text-align:center;margin-top:40px;">
+      <a href="https://page.line.me/962yasuq" target="_blank" rel="noopener" class="btn-line" data-loc="flow">LINEで予約する</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec faq-sec" aria-labelledby="faq-heading">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2 class="sec-title" id="faq-heading">よくあるご質問</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="faq-list reveal reveal-d1">
+      <details class="faq-item">
+        <summary class="faq-q">はじめてです。何を持っていけばいいですか？</summary>
+        <p class="faq-a">手ぶらでお越しいただけます。タオル・着替え（ローズ蒸しテント用）は当店でご用意しております。お時間に少し余裕を持ってお越しいただけると安心です。</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">予約はどうやって取れますか？</summary>
+        <p class="faq-a">LINE・お電話（090-1922-9911）・メールのいずれでも承っております。LINEからのご予約が一番スムーズです。完全予約制のため、お早めのご連絡をおすすめいたします。</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">小さな子どもを連れて行ってもいいですか？</summary>
+        <!-- 暫定回答：大瀬良さんに子連れ可否・条件（月齢/人数/ベビーカー等）を確認後に確定 -->
+        <p class="faq-a">お子様の年齢やご状況に合わせて、できる限りのご案内をいたします。ご予約の際にお気軽にご相談ください。</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">キャンセルや変更はできますか？</summary>
+        <!-- 暫定回答：大瀬良さんにキャンセルポリシー（連絡期限/当日キャンセル料の有無）を確認後に確定 -->
+        <p class="faq-a">ご予約の変更・キャンセルは承っております。ご予定が変わった際は、お早めにLINEまたはお電話でご連絡ください。詳しいご案内は予約確定時にお伝えいたします。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
 <!-- INFO -->
 <section class="sec info-sec" id="reserve" aria-labelledby="info-heading">
   <div class="wrap">
@@ -1089,6 +1808,7 @@
           福岡県糟屋郡宇美町<br>
           貴船1丁目1-7 2F
         </address>
+        <iframe title="SERAの地図" src="https://www.google.com/maps?q=福岡県糟屋郡宇美町貴船1丁目1-7&output=embed" width="100%" height="200" style="border:0;border-radius:8px;margin-top:14px;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <div class="info-block">
         <p class="info-label">Hours</p>
@@ -1103,9 +1823,13 @@
         <p class="info-body">
           <a href="tel:09019229911">090-1922-9911</a><br>
           <a href="mailto:seraayu7096@gmail.com" style="font-size:11px">seraayu7096@gmail.com</a><br>
-          LINE・各SNSでも受付中
+          <a href="https://page.line.me/962yasuq" target="_blank" rel="noopener" style="color:var(--line-green);border-bottom:1px solid var(--line-green);">LINEで予約・お問い合わせ</a>
         </p>
       </div>
+    </div>
+    <div class="cta-btns reveal" style="margin-top:48px;">
+      <a href="https://page.line.me/962yasuq" target="_blank" rel="noopener" class="btn-line" data-loc="info">LINEで予約する</a>
+      <a href="tel:09019229911" class="btn-tel-light" data-loc="info">お電話で予約　090-1922-9911</a>
     </div>
   </div>
 </section>
@@ -1126,17 +1850,27 @@
     <p class="cta-sub">
       完全予約制・女性専用プライベートサロン<br>
       宇美駅から徒歩5分　／　10:00〜20:00<br>
-      <span style="color:rgba(255,255,255,0.6);font-size:11px;margin-top:8px;display:inline-block;">※ 当日予約は埋まりやすくなっております。お早めにどうぞ。</span>
+      <span style="color:var(--gold-light);font-size:13px;margin-top:8px;display:inline-block;letter-spacing:.5px;">※ 完全予約制のため、ご予約はお早めにどうぞ。</span>
     </p>
     <div class="cta-btns">
-      <a href="https://page.line.me/962yasuq" class="btn-line" aria-label="LINEで予約する">
+      <a href="https://page.line.me/962yasuq" target="_blank" rel="noopener" class="btn-line" data-loc="final" aria-label="LINEで予約する">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
         LINEで予約する
       </a>
-      <p style="font-size:12px;color:rgba(255,255,255,0.45);letter-spacing:1px;">お電話：<a href="tel:09019229911" style="color:rgba(255,255,255,0.55);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">090-1922-9911</a></p>
+      <a href="tel:09019229911" class="btn-tel-outline" data-loc="final" aria-label="電話で予約する">お電話で予約　090-1922-9911</a>
     </div>
+    <p class="cta-micro" style="margin-top:20px;">LINEから簡単にご予約。日時のご相談だけでも大丈夫です。</p>
   </div>
 </section>
+
+<!-- STICKY CTA（モバイル固定予約バー：JSでヒーロー通過後に表示／最終CTA表示中は退避） -->
+<div class="sticky-cta" id="stickyCta" aria-label="予約バー">
+  <a href="https://page.line.me/962yasuq" target="_blank" rel="noopener" class="sticky-line" data-loc="sticky">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+    LINEで予約
+  </a>
+  <a href="tel:09019229911" class="sticky-tel" data-loc="sticky">電話</a>
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -1146,6 +1880,9 @@
 </footer>
 
 <script>
+  // ─ JSが動く環境でのみアニメを有効化（未発火でもコンテンツは表示される保険）
+  document.body.classList.add('js-anim');
+
   // ─ Scroll reveal
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
@@ -1163,15 +1900,42 @@
     nav.classList.toggle('scrolled', window.scrollY > 60);
   }, { passive: true });
 
+  // ─ Sticky CTA bar：ヒーローを通過したら表示。最終CTAが見えている間は退避（二重表示回避）
+  const stickyCta = document.getElementById('stickyCta');
+  const finalCta = document.querySelector('.cta-sec');
+  let finalCtaVisible = false;
+  function updateStickyCta() {
+    if (!stickyCta) return;
+    const pastHero = window.scrollY > window.innerHeight * 0.9;
+    stickyCta.classList.toggle('show', pastHero && !finalCtaVisible);
+  }
+  if (finalCta) {
+    new IntersectionObserver((entries) => {
+      finalCtaVisible = entries[0].isIntersecting;
+      updateStickyCta();
+    }, { threshold: 0.05 }).observe(finalCta);
+  }
+  window.addEventListener('scroll', updateStickyCta, { passive: true });
+  updateStickyCta();
+
   // ─ GA4 Custom Events
 
-  // 1. CTA click tracking
-  document.querySelectorAll('.btn-reserve, .btn-line, .btn-tel, a[href^="tel:"]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      gtag('event', 'cta_click', {
-        cta_text: btn.textContent.trim(),
-        cta_url: btn.getAttribute('href')
-      });
+  // 1. CTA click tracking（導線種別で分離：LINE予約意向 / 電話 / 内部スクロール）
+  //    ※ line_cta_click・tel_click は「予約成立」ではなく予約意向(マイクロCV)。
+  //      実予約数は別途記録し、クリック→実予約の転換率で評価すること（広告の最適化目標にクリックを安易に据えない）。
+  document.querySelectorAll('a[href^="https://page.line.me"]').forEach(a => {
+    a.addEventListener('click', () => {
+      gtag('event', 'line_cta_click', { location: a.dataset.loc || 'unknown' });
+    });
+  });
+  document.querySelectorAll('a[href^="tel:"]').forEach(a => {
+    a.addEventListener('click', () => {
+      gtag('event', 'tel_click', { location: a.dataset.loc || 'unknown' });
+    });
+  });
+  document.querySelectorAll('a[href^="#"][data-loc]').forEach(a => {
+    a.addEventListener('click', () => {
+      gtag('event', 'reserve_intent_click', { location: a.dataset.loc || 'unknown', anchor: a.getAttribute('href') });
     });
   });
 
