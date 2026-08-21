@@ -663,6 +663,54 @@
       line-height: 2;
     }
 
+    /* ═══ ROSE TENT COMMITMENTS ═══ */
+    .commit-lead {
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 2;
+      margin: 56px 0 28px;
+    }
+    .commit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--cream-mid);
+      border: 1px solid var(--cream-mid);
+    }
+    @media (max-width: 720px) {
+      .commit-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .commit-grid { grid-template-columns: 1fr; }
+    }
+    .commit-card {
+      background: var(--white);
+      padding: 30px 24px;
+      transition: background 0.48s cubic-bezier(.25,.46,.45,.94);
+    }
+    .commit-card:hover { background: var(--ivory); transition-duration: 0.22s; }
+    .commit-num {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      letter-spacing: 2px;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .commit-title {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+    .commit-desc {
+      font-size: 13.5px;
+      color: var(--text-mid);
+      line-height: 1.9;
+    }
+
     /* ═══ FOR WHOM ═══ */
     .for-sec { background: var(--cream); }
 
@@ -1320,48 +1368,9 @@
       html { scroll-behavior: auto; }
     }
 
-    /* ═══ PREVIEW BANNER（本番ではない目印） ═══ */
-    .preview-banner {
-      position: relative;
-      z-index: 200;
-      background: linear-gradient(90deg, #3A1F18 0%, #5C2E22 100%);
-      color: #FAF3F0;
-      padding: 12px 16px;
-      text-align: center;
-      font-size: 11px;
-      letter-spacing: 2px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 14px;
-      flex-wrap: wrap;
-      font-family: 'Noto Serif JP', serif;
-      border-bottom: 1px solid rgba(212,115,90,0.3);
-    }
-    .preview-banner-tag {
-      background: var(--salmon);
-      color: var(--white);
-      padding: 4px 10px;
-      letter-spacing: 4px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 11px;
-    }
-    .preview-banner-text { color: rgba(255,255,255,0.88); }
-    .preview-banner-date { color: rgba(255,255,255,0.45); font-size: 10px; letter-spacing: 2px; }
-    @media (max-width: 480px) {
-      .preview-banner { font-size: 10px; gap: 8px; padding: 10px 12px; }
-      .preview-banner-date { display: none; }
-    }
   </style>
 </head>
 <body>
-
-<!-- PREVIEW BANNER -->
-<div class="preview-banner" role="alert" aria-label="プレビュー表示">
-  <span class="preview-banner-tag">PREVIEW</span>
-  <span class="preview-banner-text">これは改善案v2（予約導線・CV改善版）のプレビューです（本番ではありません）</span>
-  <span class="preview-banner-date">2026-06-10</span>
-</div>
 
 <!-- NAV -->
 <nav class="nav" id="nav" role="navigation" aria-label="メインナビゲーション">
@@ -1636,6 +1645,43 @@
         <p class="rose-desc">自然免疫力・自然治癒力を高め、さまざまな悩みに幅広く対応します</p>
       </div>
     </div>
+
+    <p class="commit-lead reveal">
+      ローズ蒸しテント <em>6つのこだわり</em>
+    </p>
+    <div class="commit-grid reveal reveal-d1">
+      <div class="commit-card">
+        <span class="commit-num">01</span>
+        <p class="commit-title">完全オーガニック</p>
+        <p class="commit-desc">食べても安心なほど、完全オーガニックのローズオイルを焚いています。</p>
+      </div>
+      <div class="commit-card">
+        <span class="commit-num">02</span>
+        <p class="commit-title">花びらは使用していません</p>
+        <p class="commit-desc">花びらそのものではなく、5000分の1の濃度で抽出した精油成分のオイルを使用。20分の蒸しで、バラの花100本分相当の香りに包まれます。</p>
+      </div>
+      <div class="commit-card">
+        <span class="commit-num">03</span>
+        <p class="commit-title">オリジナルテント</p>
+        <p class="commit-desc">2枚重ねのレースと両サイドのギャザーで、わずかな蒸気も逃さず、ローズに満ちた上質な空間を演出します。</p>
+      </div>
+      <div class="commit-card">
+        <span class="commit-num">04</span>
+        <p class="commit-title">オリジナルマント</p>
+        <p class="commit-desc">肩甲骨に当たる部分に天然鉱石を内蔵した、SERAだけの特別仕様。</p>
+      </div>
+      <div class="commit-card">
+        <span class="commit-num">05</span>
+        <p class="commit-title">オリジナル椅子①</p>
+        <p class="commit-desc">座骨・尾骨に当たる部分にも、マントと同様の天然鉱石を内蔵しています。</p>
+      </div>
+      <div class="commit-card">
+        <span class="commit-num">06</span>
+        <p class="commit-title">オリジナル椅子②</p>
+        <p class="commit-desc">座面には、医療現場でも使われる抗菌性の高いシートを採用。衛生面にもこだわっています。</p>
+      </div>
+    </div>
+
     <div class="reveal" style="margin-top:40px;overflow:hidden;border-radius:8px;">
       <img src="images/sera-rose-steam.jpg" alt="ローズ蒸しテント体験中" style="width:100%;max-height:400px;object-fit:cover;display:block;">
     </div>
