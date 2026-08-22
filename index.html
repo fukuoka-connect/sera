@@ -499,7 +499,22 @@
     }
 
     /* ═══ CONCEPT ═══ */
-    .concept-sec { background: var(--ivory); }
+    .concept-sec { background: var(--ivory); position: relative; }
+
+    /* ═══ ORGANIC SECTION DIVIDERS（施術者紹介まわりのみ） ═══ */
+    .sec-divider {
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      width: 100%;
+      line-height: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .sec-divider svg { display: block; width: 100%; height: 72px; }
+    @media (max-width: 640px) {
+      .sec-divider svg { height: 44px; }
+    }
 
     .concept-layout {
       display: grid;
@@ -967,7 +982,7 @@
     }
 
     /* ═══ THERAPIST PROFILE ═══ */
-    .therapist-sec { background: var(--white); }
+    .therapist-sec { background: var(--white); position: relative; }
     .therapist-layout {
       display: grid;
       grid-template-columns: 300px 1fr;
@@ -1525,6 +1540,11 @@
       </div>
     </div>
   </div>
+  <div class="sec-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,38 C110,72 230,8 360,42 C500,78 610,18 750,48 C880,76 990,14 1140,52 C1270,84 1350,28 1440,46 L1440,100 L0,100 Z" fill="var(--white)"></path>
+    </svg>
+  </div>
 </section>
 
 <!-- THERAPIST PROFILE -->
@@ -1568,6 +1588,11 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="sec-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,52 C130,18 240,86 380,50 C510,16 630,80 760,44 C890,10 1000,74 1150,40 C1280,8 1360,66 1440,34 L1440,100 L0,100 Z" fill="var(--cream)"></path>
+    </svg>
   </div>
 </section>
 
